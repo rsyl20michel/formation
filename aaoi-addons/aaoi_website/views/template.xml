@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="address_management" name="Address Management" inherit_id="website_sale.address">
+    <xpath expr="//form[@action='/shop/address']//div[contains(@t-attf-class, 'div_name')]" position="after">
+      <div t-attf-class="form-group #{error.get('birthday') and 'o_has_error' or ''} col-lg-12" id="div_birthday">
+        <label t-attf-class="col-form-label #{mode[1] == 'shipping' and 'label-optional' or ''}" for="birthday">Birthday
+        </label>
+        <input type="date" name="birthday"
+               t-attf-class="form-control #{error.get('birthday') and 'is-invalid' or ''}"
+               t-att-value="'birthday' in checkout and checkout['birthday']"/>
+      </div>
+    </xpath>
+  </template>
+
+  <template id="portal_details" name="Portal Details" inherit_id="portal.portal_my_details">
+    <xpath expr="//form[@action='/my/account']//div[hasclass('clearfix')]" position="before">
+      <div t-attf-class="form-group #{error.get('birthday') and 'o_has_error' or ''} col-xl-12">
+        <label class="col-form-label" for="birthday">Birthday</label>
+        <input type="date" name="birthday"
+               t-attf-class="form-control #{error.get('birthday') and 'is-invalid' or ''}"
+               t-att-value="birthday or partner.birthday"/>
+      </div>
+    </xpath>
+  </template>
+
+  <!-- Footer Menu Page -->
+  <template id="customized_training" name="Customized Training">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div id="wrap" class="oe_structure oe_empty">
+      </div>
+    </t>
+  </template>
+
+  <template id="cgu" name="CGU">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div id="wrap" class="oe_structure oe_empty">
+      </div>
+    </t>
+  </template>
+
+  <template id="contact" name="Contact">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div id="wrap" class="oe_structure oe_empty">
+      </div>
+    </t>
+  </template>
+
+  <template id="legal_notice" name="Legal Notice">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div id="wrap" class="oe_structure oe_empty">
+      </div>
+    </t>
+  </template>
+
+  <!-- Company Description -->
+  <template id="contactus" inherit_id="website.contactus" name="Contact Us">
+    <xpath expr="//ul[contains(@class, 'list-unstyled')]" position="attributes">
+      <attribute name="style">display: none;</attribute>
+    </xpath>
+    <xpath expr="//ul[contains(@class, 'list-unstyled')]" position="after">
+      <address itemscope="itemscope" itemtype="http://schema.org/Organization">
+        <!-- TODO widget contact must add itemprop attributes -->
+        <div t-field="res_company.partner_id" t-options='{
+                "widget": "contact",
+                "fields": ["name", "address", "phone", "mobile", "email"]}'/>
+        <t t-if="not res_company.google_map_img()">
+          <span class="fa fa-map-marker fa-fw mt16" role="img" aria-label="Address" title="Address"/>
+          <a t-att-href="res_company.google_map_link()" target="_BLANK">Google Maps</a>
+        </t>
+      </address>
+    </xpath>
+  </template>
+
+</odoo>

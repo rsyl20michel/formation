@@ -1,0 +1,1228 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* aaoi_website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20211221\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-01 18:01+0000\n"
+"PO-Revision-Date: 2022-03-01 18:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid "(Ref:"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "(only"
+msgstr "(seulement"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid ""
+"<b>\n"
+"                    in IT expertise training\n"
+"                  </b>"
+msgstr ""
+"<b>\n"
+"                    en formation d'expertise IT\n"
+"                  </b>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid "<b>End</b>"
+msgstr "<b>Fin</b>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid "<b>Start</b>"
+msgstr "<b>Début</b>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid ""
+"<i class=\"fa fa-fw fa-calendar\"/>\n"
+"                Add to Google Calendar"
+msgstr ""
+"<i class=\"fa fa-fw fa-calendar\"/>\n"
+"                Ajouter au Calendrier Google"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid ""
+"<i class=\"fa fa-fw fa-calendar\"/>\n"
+"                Add to iCal/Outlook"
+msgstr ""
+"<i class=\"fa fa-fw fa-calendar\"/>\n"
+"                Ajouter à iCal/Outlook"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_testimonial_modal
+msgid ""
+"<i class=\"fa fa-star ml-1\"/>\n"
+"                I would like to register for this course"
+msgstr ""
+"<i class=\"fa fa-star ml-1\"/>\n"
+"                Je souhaite m'inscrire à cette formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid ""
+"<i class=\"picto picto-calendar\"/>\n"
+"                    Planning"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid ""
+"<i class=\"picto picto-calendar\"/>\n"
+"          Planning"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid ""
+"<i class=\"picto picto-download\"/>\n"
+"                      Download as PDF"
+msgstr ""
+"<i class=\"picto picto-download\"/>\n"
+"                      Télécharger en PDF"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_customized_training_snippets
+msgid ""
+"<i class=\"picto picto-feather-check\"/>\n"
+"              Analysis of your needs"
+msgstr ""
+"<i class=\"picto picto-feather-check\"/>\n"
+"              Analyse de vos besoins"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_customized_training_snippets
+msgid ""
+"<i class=\"picto picto-feather-check\"/>\n"
+"              Co-designing"
+msgstr ""
+"<i class=\"picto picto-feather-check\"/>\n"
+"              Co-conception"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_customized_training_snippets
+msgid ""
+"<i class=\"picto picto-feather-check\"/>\n"
+"              Deployment &amp; monitoring"
+msgstr ""
+"<i class=\"picto picto-feather-check\"/>\n"
+"              Déploiement &amp; suivi"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid ""
+"<i class=\"picto picto-paper\"/>\n"
+"                    Training catalog"
+msgstr ""
+"<i class=\"picto picto-paper\"/>\n"
+"                  Catalogue de formations"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_planning
+msgid ""
+"<i class=\"picto picto-paper-aaoi\"/>\n"
+"          List of trainings"
+msgstr ""
+"<i class=\"picto picto-paper-aaoi\"/>\n"
+"          Liste des formations"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      About AAOI"
+msgstr ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      À propos de AAOI"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Blog &amp; Events"
+msgstr ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Blog &amp; événements"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      C.G.V / C.G.U"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Contact"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Customized training"
+msgstr ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Formation sur mesure"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      I am an instructor"
+msgstr ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Je suis un formateur"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Legal Notice"
+msgstr ""
+"<i class=\"picto picto-polygon\"/>\n"
+"                      Mentions légales"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid ""
+"<i class=\"picto picto-polygon-primary\"/>\n"
+"                                About AAOI"
+msgstr ""
+"<i class=\"picto picto-polygon-primary\"/>\n"
+"                              À propos de AAOI"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid ""
+"<i class=\"picto picto-polygon-primary\"/>\n"
+"                                Request for specific training"
+msgstr ""
+"<i class=\"picto picto-polygon-primary\"/>\n"
+"                                Demande de formation spécifique"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid ""
+"<small>\n"
+"                        Registered\n"
+"                      </small>"
+msgstr ""
+"<small>\n"
+"                        Inscrit\n"
+"                      </small>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+msgid ""
+"<small>\n"
+"                      Registered\n"
+"                    </small>"
+msgstr ""
+"<small>\n"
+"                      Inscrit\n"
+"                    </small>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_testimonial_modal
+msgid "<span aria-hidden=\"false\">&amp;times;</span>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "<span class=\"coach-post mb-0\">Directeur</span>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "<span class=\"coach-post mb-0\">Prof. Design Thinking</span>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "<span class=\"coach-post mb-0\">Prof. Marketing Digital</span>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "<span class=\"coach-post mb-0\">Secrétaire Générale</span>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "<span class=\"coach-post mb-0\">Senior developer @ Google</span>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid ""
+"<span class=\"d-inline\">\n"
+"                                    available\n"
+"                                  </span>"
+msgstr ""
+"<span class=\"d-inline\">\n"
+"                                    disponible(s)\n"
+"                                  </span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid ""
+"<span class=\"d-inline\">\n"
+"                            available\n"
+"                          </span>"
+msgstr ""
+"<span class=\"d-inline\">\n"
+"                            disponible(s)\n"
+"                          </span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+msgid ""
+"<span class=\"d-inline\">\n"
+"                          available\n"
+"                        </span>"
+msgstr ""
+"<span class=\"d-inline\">\n"
+"                          disponible(s)\n"
+"                        </span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid ""
+"<span class=\"d-inline\">\n"
+"                      available\n"
+"                    </span>"
+msgstr ""
+"<span class=\"d-inline\">\n"
+"                      disponible(s)\n"
+"                    </span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_testimonial
+msgid ""
+"<span class=\"fa fa-chevron-circle-left fa-2x\"/>\n"
+"          <span class=\"sr-only\">Previous</span>"
+msgstr ""
+"<span class=\"fa fa-chevron-circle-left fa-2x\"/>\n"
+"              <span class=\"sr-only\">Précédent</span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_testimonial
+msgid ""
+"<span class=\"fa fa-chevron-circle-right fa-2x\"/>\n"
+"          <span class=\"sr-only\">Next</span>"
+msgstr ""
+"<span class=\"fa fa-chevron-circle-right fa-2x\"/>\n"
+"              <span class=\"sr-only\">Suivant</span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.contactus
+msgid ""
+"<span class=\"fa fa-map-marker fa-fw mt16\" role=\"img\" aria-"
+"label=\"Address\" title=\"Address\"/>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_portal_searchbar
+msgid "<span class=\"small mr-1 navbar-text\">Show:</span>"
+msgstr "<span class=\"small mr-1 navbar-text\">Afficher:</span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_portal_searchbar
+msgid "<span class=\"small mr-1 navbar-text\">Sort By:</span>"
+msgstr "<span class=\"small mr-1 navbar-text\">Trier par:</span>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid ""
+"<span class=\"text\">\n"
+"                All trainings\n"
+"              </span>\n"
+"              <span class=\"checkmark\"/>"
+msgstr ""
+"<span class=\"text\">\n"
+"                Toutes les formations\n"
+"              </span>\n"
+"              <span class=\"checkmark\"/>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">1.\n"
+"                  </strong>\n"
+"                  Pre-training"
+msgstr ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">1.\n"
+"                  </strong>\n"
+"                  Pré-formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">2.\n"
+"                  </strong>\n"
+"                  Training"
+msgstr ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">2.\n"
+"                  </strong>\n"
+"                  Formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">3.\n"
+"                  </strong>\n"
+"                  Evaluation"
+msgstr ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">3.\n"
+"                  </strong>\n"
+"                  Évaluation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">4.\n"
+"                  </strong>\n"
+"                  Follow-up"
+msgstr ""
+"<strong class=\"aaoi_learn_more_snippets_title number\">4.\n"
+"                  </strong>\n"
+"                  Suivi"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid ""
+"<strong class=\"font-weight-bold\">\n"
+"                    Share :\n"
+"                  </strong>"
+msgstr ""
+"<strong class=\"font-weight-bold\">\n"
+"                    Partager :\n"
+"                  </strong>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"<strong class=\"text-white font-weight-bold\">Pierre Paul ARDILE</strong>\n"
+"                  <br/>\n"
+"                  CEO - Arkeup Group"
+msgstr ""
+"<strong class=\"text-white font-weight-bold\">Pierre Paul ARDILE</strong>\n"
+"                  <br/>\n"
+"                  PDG - Arkeup Group"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "AAOI Certified Trainer"
+msgstr "Formateur certifié AAOI"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.add_footer
+msgid "AAOI Footer"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.add_header
+msgid "AAOI Header"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.add_all_snippets_to_bar
+msgid "AAOI Snippets"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.portal_training_menu
+msgid "About AAOI"
+msgstr "À propos de AAOI"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid ""
+"Access high-level training from experienced instructors and obtain "
+"international certifications."
+msgstr ""
+"Accédez à des formations de haut niveau, prodiguées par des formateurs "
+"expérimentés et obtenez des certifications internationales"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid "Accompaniment Center"
+msgstr "Centre d'accompagnement"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"Accompany any individual or company wishing to achieve excellence in their "
+"chosen field."
+msgstr ""
+"Accompagner toute personne ou toute entreprise voulant atteindre "
+"l’excellence dans leur domaine de prédilection."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid "Adapted to your needs"
+msgstr "Adaptées à vos besoins"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"ArkeUp Academy Indian Ocean training courses are high level courses, initiated by experienced trainers,\n"
+"              both pedagogically and practically."
+msgstr ""
+"Les formations signées ArkeUp Academy Océan Indien sont des formations de haut niveau, initiés par des formateurs\n"
+"              expérimentés, tant sur le plan pédagogique que pratique."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_learn_more_snippets
+msgid ""
+"ArkeUp Academy,\n"
+"                  <br/>\n"
+"                  always in innovation"
+msgstr ""
+"ArkeUp Academy,\n"
+"                  <br/>\n"
+"                  toujours dans l'innovation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"ArkeUp Academy,\n"
+"                  <br/>\n"
+"                  excellence and innovation"
+msgstr ""
+"ArkeUp Academy,\n"
+"                  <br/>\n"
+"                  excellence et innovation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"At ArkeUp Academy, we know and believe that becoming an expert in a field that we are passionate\n"
+"                    about is the best passionate about is the best satisfaction one can have."
+msgstr ""
+"Chez ArkeUp Academy, nous sommes conscient et pensons que devenir un expert dans un domaine qui nous passionne\n"
+"                    est la meilleure satisfaction qu’on puisse avoir."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"At the end of each course, an evaluation will be made to materialize the acquired knowledge. The grade\n"
+"                  is attributed according to precise scales."
+msgstr ""
+"À la fin de chaque formation, une évaluation sera effectuée pour matérialiser les acquis. La note\n"
+"                  est attribuée selon des barèmes précis."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Available dates"
+msgstr "Les dates disponibles"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.address_management
+#: model_terms:ir.ui.view,arch_db:aaoi_website.portal_details
+msgid "Birthday"
+msgstr "Date de naissance"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+msgid "Blog &amp; Events"
+msgstr "Blog &amp; événements"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Brooklyn Simmons"
+msgstr ""
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#, python-format
+msgid "C.G.V / C.G.U"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_testimonial_modal
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid "Categories"
+msgstr "Catégories"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_testimonial_modal
+msgid "Close"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Closed"
+msgstr "Clôturée"
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#, python-format
+msgid "Contact"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid "Copyright © ArkeUp Academy Indian Ocean -"
+msgstr "Copyright © ArkeUp Academy Océan Indien -"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid "Current Training"
+msgstr "Formation du moment"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Current Trainings"
+msgstr "Formations du moment"
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_customized_training_snippets
+#, python-format
+msgid "Customized training"
+msgstr "Formation sur mesure"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Darlene Robertson"
+msgstr ""
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#: code:addons/aaoi_website/controllers/main.py:0
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#, python-format
+msgid "Day 1"
+msgstr "Jour 1"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_customized_training_snippets
+msgid ""
+"Design with us tailor-made training courses adapted to your real needs, which can effectively meet the\n"
+"              specific challenges of your company."
+msgstr ""
+"Concevez avec nous des formations sur-mesure, adaptées à vos besoins réels, pouvant répondre efficacement\n"
+"              aux enjeux spécifiques de votre entreprise."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"Digital technology is currently booming in Madagascar in all sectors of activity. The State is, among\n"
+"                  other things, very committed to the digital transformation process."
+msgstr ""
+"Le digital est actuellement en plein essor à Madagascar dans tous les secteurs d'activité. L’Etat s’est, entre autres\n"
+"                  , engagé de manière très importante dans la démarche de transformation."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid "Duration:"
+msgstr "Durée:"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid ""
+"Duration:\n"
+"                    <br/>"
+msgstr ""
+"Durée:\n"
+"                    <br/>"
+
+#. module: aaoi_website
+#. openerp-web
+#: code:addons/aaoi_website/static/src/js/snippets.js:0
+#: code:addons/aaoi_website/static/src/js/snippets.js:0
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+msgid "Event"
+msgstr "Événement"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"Excellence\n"
+"                    <br/>\n"
+"                    Innovation\n"
+"                    <br/>\n"
+"                    Commitment"
+msgstr ""
+"L’Excellence\n"
+"                    <br/>\n"
+"                    L’Innovation\n"
+"                    <br/>\n"
+"                    L’Engagement"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid "Excellence - Innovation - Commitment"
+msgstr "Excellence - Innovation - Engagement"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Fees :"
+msgstr "Frais :"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid ""
+"Fees :\n"
+"                    <br/>"
+msgstr ""
+"Frais :\n"
+"                    <br/>"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Formateur Certifié AAOI"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Free"
+msgstr "Gratuit"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+msgid "Generic placeholder image"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.contactus
+msgid "Google Maps"
+msgstr ""
+
+#. module: aaoi_website
+#: model:ir.model,name:aaoi_website.model_ir_http
+msgid "HTTP Routing"
+msgstr "Routage HTTP"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Hoby RASAMIMISA"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid "I am looking for: a training..."
+msgstr "Je cherche: une formation..."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+msgid "I express my requirements"
+msgstr "J'exprime mes besoins"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid "I find out more"
+msgstr "Je découvre plus d'infos"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"I was convinced that eTech- ArkeUp group, as the number 1 digital company in the area, had to\n"
+"                  participate in the collective effort to achieve this goal. It is with this vision that we created\n"
+"                  ArkeUp Academy Indian Ocean. Our mission is to train students, professionals, and collaborators of our\n"
+"                  colleagues, as well as\n"
+"                  to accompany public and private bodies in new, innovative fields that are recognized in international\n"
+"                  countries."
+msgstr ""
+"Ma conviction était qu’ eTech- groupe ArkeUp, en tant que numéro 1 du digital sur la zone, se devait\n"
+"                  de participer à l’effort collectif pour atteindre cet objectif. C’est dans cette vision que nous avons créé\n"
+"                  ArkeUp Academy Océan Indien. La mission que nous nous sommes donnés est de pouvoir former des étudiants\n"
+"                  , des professionnels, les collaborateurs de nos confrères, ainsi que\n"
+"                  d’accompagner les instances publiques et privées sur les domaines nouveaux, innovants et qui sont\n"
+"                  reconnus dans les pays internationaux."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "I would suggest a date"
+msgstr "Je suggère une date"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid "Informations &amp; Assistance"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_learn_more_snippets
+msgid ""
+"Known as a training center specialized in the digital domain, ArkeUp Academy Indian Ocean remains\n"
+"                  attentive to its customers. In addition to the usual themes of web and mobile development, network\n"
+"                  administration and security, operating systems and project management, companies also contact us for\n"
+"                  more specific aspects..."
+msgstr ""
+"Reconnu comme un centre de formation spécialisé dans le domaine du numérique, ArkeUp Academy Océan\n"
+"                  Indien reste à l'écoute de ses clients. Outre les thèmes habituels que sont le développement web et mobile,\n"
+"                  l'administration et la sécurité des réseaux, les systèmes d'exploitation et la gestion de projet, les entreprises\n"
+"                  nous contactent également pour des aspects plus spécifiques..."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_learn_more_snippets
+msgid "Learn more about AAOI"
+msgstr "En savoir plus sur AAOI"
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#, python-format
+msgid "Legal Notice"
+msgstr "Mentions légales"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Methodology"
+msgstr "La méthodologie"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Mode :"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid ""
+"Mode :\n"
+"                    <br/>"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"Modern\n"
+"                      <br/>\n"
+"                      and Welcoming\n"
+"                      <br/>\n"
+"                      Infrastructure"
+msgstr ""
+"Infrastructure\n"
+"                      <br/>\n"
+"                      Moderne\n"
+"                      <br/>\n"
+"                      et Accueillante"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid "N/A"
+msgstr ""
+
+#. module: aaoi_website
+#: code:addons/aaoi_website/controllers/main.py:0
+#: code:addons/aaoi_website/controllers/main.py:0
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+msgid "No trainings found."
+msgstr "Aucune formation trouvée."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Noah RAMBELOSON"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+msgid ""
+"None of the courses listed correspond to my research and my expectations."
+msgstr ""
+"Aucunes des formations listés ne correspondent à mes recherches et à mes "
+"attentes."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+msgid "None of the dates listed match my schedule"
+msgstr "Aucune des dates listées ne correspondent à mon planning"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Our mission"
+msgstr "Notre mission"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid ""
+"Our oriented training courses give you access to a share of experiences and a transfer of skills\n"
+"                    from our trainers."
+msgstr ""
+"Nos formations orientées vous donnent accès à un partage d'expériences et un transfert de compétences\n"
+"                  de la part de nos formateurs."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_partner_snippets
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Our partners"
+msgstr "Nos partenaires"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"Our team is composed of young, passionate and qualified people who are always ready to listen to the needs\n"
+"              of companies."
+msgstr ""
+"Notre équipe est composée de jeunes passionnés et qualifiés toujours à l’écoute des besoins\n"
+"              des entreprises."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid ""
+"Our training courses are designed to meet the most frequent needs of "
+"companies."
+msgstr ""
+"Nous élaborons nos formations dans l'objectif de répondre aux besoins les "
+"plus fréquents ressentis au sein des entreprises."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Our values"
+msgstr "Nos valeurs"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "Our vision"
+msgstr "Notre vision"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid "Places :"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Places:"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Programs &amp; Schedule"
+msgstr "Programmes &amp; Planning"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Provided with the training"
+msgstr "Fournis avec la formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Purpose of the training"
+msgstr "Objectif de la formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid "Quality training"
+msgstr "Formations de qualité"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_customized_training_snippets
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Read more"
+msgstr "En savoir plus"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid "Ref:"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Register"
+msgstr "Je m'inscris ici"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Registered"
+msgstr "Inscrit"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.registration_complete
+msgid "Registration confirmed!"
+msgstr "Inscription confirmée!"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Registration starting on"
+msgstr "L'inscription débute le"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Registrations Closed"
+msgstr "Inscriptions terminées"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.portal_training_menu
+msgid "Schedules"
+msgstr "Planning"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+msgid "See all articles &amp; events"
+msgstr "Voir tous les articles &amp; événements"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid "Show filter"
+msgstr "Afficher le filtre"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Sold Out"
+msgstr "Complète"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_training
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "Soon"
+msgstr "Bientôt"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_snippets
+msgid "Specialized accompaniment"
+msgstr "Accompagnement pointu"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_newsletter_snippets
+msgid ""
+"Stay up to date with the latest news\n"
+"                <br/>\n"
+"                and news about Arkeup Academy."
+msgstr ""
+"Restez toujours informé des actualités\n"
+"                <br/>\n"
+"                et des nouveautés sur Arkeup Academy."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_newsletter_snippets
+msgid "I subscribe to newsletters"
+msgstr "Je m'inscris aux newsletters"
+
+#. module: aaoi_website
+#. openerp-web
+#: code:addons/aaoi_website/static/src/js/snippets.js:0
+#, python-format
+msgid "Success"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_testimonial_modal
+msgid "Testimonial"
+msgstr "Témoignage"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_newsletter_snippets
+msgid "Thanks"
+msgstr "Merci"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "The date not match my schedule."
+msgstr "La date ne correspond pas à mon emploi du temps."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+msgid "The other Arkeup sites and universes"
+msgstr "Les autres sites et univers Arkeup"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid "The pedagogical team"
+msgstr "L’équipe pédagogique"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"The profile of each candidate is studied before registration in order to offer them a curriculum that\n"
+"                  is more adapted to their level."
+msgstr ""
+"Le profil de chaque candidat est étudié avant toute inscription pour leur offrir un cursus\n"
+"                  plus adapté à leur niveau."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"The quality of the training is our guideline. Each participant is accompanied according to his or her\n"
+"                  learning pace."
+msgstr ""
+"La qualité des formations est notre ligne directrice. Chaque participant est accompagné suivant son\n"
+"                  rythme d’apprentissage."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_testimonial
+msgid "The testimonials"
+msgstr "Les témoignages"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_blog_event
+msgid "To"
+msgstr "Jusqu'à"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_training
+msgid "Training adapted to your needs"
+msgstr "Des formations adaptées à vos besoins"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid "Training categories"
+msgstr "Catégories de formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_planning
+msgid "Training dates"
+msgstr "Dates des formations"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Training provided by"
+msgstr "Formation assurée par"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_plannings_banner
+msgid "Training schedule"
+msgstr "Le calendrier des formations"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+msgid "Training target"
+msgstr "Cible de la formation"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.portal_training_menu
+msgid "Trainings"
+msgstr "Formations"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "View the training schedule"
+msgstr "Voir le planning des formations"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_planning
+msgid "We also invite you to consult the training catalog."
+msgstr "Nous vous invitons aussi à consulter le catalogue des formations."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid "We also offer customized training to meet your company's needs."
+msgstr ""
+"Nous avons aussi des formations sur mesure qui répondent aux enjeux de votre"
+" entreprise."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_plannings_banner
+msgid ""
+"We have provided you with dates for each training course according to your availability: Network and System\n"
+"            Administration, Web and Mobile Development, Security, Data Science &amp; Machine Learning ..."
+msgstr ""
+"Nous avons mis à votre disposition des dates pour chaque formation selon votre disponibilités : Administration Réseau et\n"
+"            Système, Développement Web et Mobile, Sécurité, Data Science &amp; Machine Learning ..."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_aside_training
+msgid "We invite you to consult the training schedule."
+msgstr "Nous vous invitons à consulter le calendrier des formations."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_banner_training
+msgid ""
+"We offer quality training courses carefully prepared by experts in Network and System Administration, Web\n"
+"            and Mobile Development, Security, Data Science and Machine Learning."
+msgstr ""
+"Nous vous proposons des formations de qualité soigneusement préparées par des experts en Administration Réseau Système,\n"
+"            Développement Web et Mobile, Sécurité, Data Science et Machine Learning."
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aboutus
+msgid ""
+"We provide your employees with a PDF version of the course material so that they can follow the\n"
+"                  courses virtually."
+msgstr ""
+"Nous mettons à disposition de vos collaborateurs un support de cours en version PDF afin qu’ils puissent suivre\n"
+"                  les cours en virtuel."
+
+#. module: aaoi_website
+#: model:ir.model,name:aaoi_website.model_website
+msgid "Website"
+msgstr "Site Web"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_list_planning
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_training_details
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_current_training
+msgid "available)"
+msgstr "disponible(s))"
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_footer_aaoi
+#: model_terms:ir.ui.view,arch_db:aaoi_website.template_header_aaoi
+msgid "call aooi illustration"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.dynamic_aaoi_testimonial
+msgid "play button"
+msgstr ""
+
+#. module: aaoi_website
+#: model_terms:ir.ui.view,arch_db:aaoi_website.aaoi_newsletter_snippets
+msgid "your email..."
+msgstr "Votre adresse email..."

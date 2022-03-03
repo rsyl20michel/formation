@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="aaoi_event.certificate_scan" name="Certificate Section">
+    <t t-if="certificate_id">
+      <p>
+        <span class="r-infos">Ref. :</span>
+        <b t-field="certificate_id.number"/>
+      </p>
+      <p>
+        <span class="r-infos">Name &amp; firstname :</span>
+        <span t-field="certificate_id.partner_id.name"/>
+      </p>
+      <p>
+        <span class="r-infos">Date :</span>
+        <span t-field="certificate_id.date"/>
+      </p>
+      <p>
+        <span class="r-infos">Course :</span>
+        <span t-field="certificate_id.event_id.name"/>
+      </p>
+      <p>
+        <span class="r-infos">Responsible :</span>
+        <span t-field="certificate_id.user_id.name"/>
+      </p>
+      <p>
+        <span class="r-infos">Hourly Volume :</span>
+        <span t-field="certificate_id.hourly_volume"/>
+      </p>
+      <p>
+        <span class="r-infos">Scores :</span>
+        <span t-esc="str(certificate_id.scores * 100) + '%'"/>
+      </p>
+    </t>
+    <t t-else="">
+      <h4 class="text-danger">
+        No results are associated with your request.
+      </h4>
+    </t>
+  </template>
+
+  <template id="aaoi_event.certificate_verification" name="Certificate Verification">
+    <t t-if="not certificate_id">
+      <form t-attf-action="/certificate/checking" method="post" class="o_portal_certificate">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+        <div class="form-group">
+          <h3 class="font-weight-bold">Enter the first ten-digit of your security code below</h3>
+          <label for="security_code">Security Code :</label>
+          <input id="security_code" required="1" name="security_code" type="text" class="form-control iconed-field"
+                 placeholder="e.g. 093328f54b8" maxlength="10"/>
+        </div>
+
+        <p class="alert alert-danger" t-if="error" role="alert">
+          <t t-esc="error"/>
+        </p>
+        <p class="alert alert-success" t-if="message" role="status">
+          <t t-esc="message"/>
+        </p>
+
+        <button id="check_button" type="submit"
+                class="btn btn-block text-uppercase btn-primary btn-outlined rounded-pill">
+          <i class="picto picto-check mr-2"></i>
+          Check
+        </button>
+      </form>
+    </t>
+    <t t-else="" t-call="aaoi_event.certificate_scan"/>
+  </template>
+
+  <template id="aaoi_event.certificate_page" name="Certificate">
+    <t t-call="website.layout">
+      <div class="page">
+        <section class="main localize">
+          <div class="portal-container flex portal-block">
+            <div class="left-infos">
+              <span class="img-responsive" t-field="company.logo" t-att-title="company.name"
+                    t-options='{"widget": "image", "style":"max-height: 250px; display: inline-block"}'/>
+            </div>
+            <div class="right-infos">
+              <t t-if="scan" t-call="aaoi_event.certificate_scan"/>
+              <t t-else="not scan" t-call="aaoi_event.certificate_verification"/>
+            </div>
+          </div>
+        </section>
+      </div>
+    </t>
+  </template>
+</odoo>

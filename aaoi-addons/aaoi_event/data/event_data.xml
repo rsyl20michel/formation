@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <!-- Event Modality -->
+    <record id="event_modality_onsite" model="event.modality">
+      <field name="name">On-site</field>
+    </record>
+    <record id="event_modality_online" model="event.modality">
+      <field name="name">Online</field>
+    </record>
+
+    <!-- Event Target -->
+    <record id="event_target_developer" model="event.target">
+      <field name="name">Developer</field>
+    </record>
+    <record id="event_target_product_owner" model="event.target">
+      <field name="name">Product Owner</field>
+    </record>
+    <record id="event_target_uxui_designer" model="event.target">
+      <field name="name">UX/UI Designer</field>
+    </record>
+    <record id="event_target_project_manager" model="event.target">
+      <field name="name">Project Manager</field>
+    </record>
+    <record id="event_target_ba" model="event.target">
+      <field name="name">Business Analyst</field>
+    </record>
+
+    <!-- Event Provided Type -->
+    <record id="event_provided_type_digit_docs" model="event.provided.type">
+      <field name="name">Digital documents</field>
+    </record>
+    <record id="event_provided_type_meals" model="event.provided.type">
+      <field name="name">Meals</field>
+    </record>
+    <record id="event_provided_type_material" model="event.provided.type">
+      <field name="name">Material</field>
+    </record>
+    <record id="event_provided_type_connection" model="event.provided.type">
+      <field name="name">Connection</field>
+    </record>
+
+    <!-- Event Certificate Type -->
+    <record id="event_certificate_type_by_aaoi" model="event.certificate.type">
+      <field name="name">Certificate issued by AAOI</field>
+    </record>
+    <record id="event_certificate_type_collaborative" model="event.certificate.type">
+      <field name="name">Collaborative certification</field>
+    </record>
+    <record id="event_certificate_type_certificate" model="event.certificate.type">
+      <field name="name">Certificate</field>
+    </record>
+
+  </data>
+</odoo>

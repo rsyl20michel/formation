@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="aaoi_banner_training" name="Banner Training">
+    <div class="col-12">
+      <div class="aaoi_banner_training br-8 mt-3">
+        <div class="col-12 aaoi_customized_training_snippets_container first_col_formation_sur_mesure">
+          <h1 class="aaoi_customized_training_title">
+            Training adapted to your needs
+          </h1>
+          <p class="aaoi_customized_training_text mb-0">
+            We offer quality training courses carefully prepared by experts in Network and System Administration, Web
+            and Mobile Development, Security, Data Science and Machine Learning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="aaoi_aside_training" name="Aside Training">
+    <div class="col-12 col-md-12 col-lg-3 col_trainings_filter">
+      <div class="trainings_filter">
+        <div class="trainings_flex">
+          <h4 class="trainings_title mb-4">
+            Categories
+          </h4>
+          <a class="aaoi_btn_fulled trainings_collapse" data-toggle="collapse" href="#collapseTrainingList"
+             role="button" aria-expanded="false" aria-controls="collapseTrainingList">
+            Show filter
+          </a>
+        </div>
+        <div class="collapse" id="collapseTrainingList">
+          <div class="trainings_radio_content">
+            <label class="trainings_radio_container">
+              <input type="checkbox"
+                     t-att-checked="not request.httprequest.args.get('tags') or request.httprequest.args.get('tags') == '[]'"
+                     id="all_tags" t-att-value="'/training'"/>
+              <span class="text">
+                All trainings
+              </span>
+              <span class="checkmark"></span>
+            </label>
+            <t t-foreach="tag_ids" t-as="tag_id">
+              <label class="trainings_radio_container">
+                <input type="checkbox"
+                       id="tag_id"
+                       t-att-tag-id="tag_id.id"
+                       t-att-checked="tag_id.id in literal_eval(request.httprequest.args.get('tags')) if request.httprequest.args.get('tags') else False"
+                       t-att-value="'/training?%s' % keep_query('*', tags=str((search_tags - tag_id).ids if tag_id in search_tags else (tag_id | search_tags).ids))">
+                </input>
+                <span class="text" t-esc="tag_id.name"/>
+                <span class="checkmark"></span>
+              </label>
+            </t>
+          </div>
+        </div>
+      </div>
+      <div class="trainings_planning">
+        <p class="trainings_planning_text mb-4">
+          We invite you to consult the training schedule.
+        </p>
+        <a href="/planning" class="aaoi_btn_bordered trainings">
+          <i class="picto picto-calendar"></i>
+          Planning
+          <t t-esc="this_year"/>
+        </a>
+      </div>
+      <div class="trainings_moreinfo">
+        <p class="trainings_moreinfo_text mb-4">
+          We also offer customized training to meet your company's needs.
+        </p>
+        <a href="/customized-training" class="aaoi_btn_fulled trainings">
+          I find out more
+        </a>
+      </div>
+    </div>
+  </template>
+
+  <template id="aaoi_list_training" name="List Training">
+    <div class="col-12 col-md-12 col-lg-9">
+      <div class="row">
+        <t t-call="aaoi_website.aaoi_portal_searchbar"/>
+        <t t-foreach="event_ids" t-as="event_id">
+          <div class="col-12 col-md-6 mb-4">
+            <a t-att-href="'/training/%s' % (slug(event_id))">
+              <t t-set="ir_http" t-value="request.env['ir.http']"/>
+              <t t-set="date_begin" t-value="event_id.date_begin"/>
+              <div class="aaoi_list_training_content">
+                <div class="aaoi_list_training_content_img">
+                  <!-- Participating -->
+                  <div t-if="event_id.is_participating" class="o_ribbon_right bg-success text-uppercase">
+                    <small>
+                      Registered
+                    </small>
+                  </div>
+                  <div t-if="not event_id.event_registrations_open or event_id.event_registrations_sold_out"
+                       t-attf-class="o_ribbon_right text-uppercase #{not event_id.event_registrations_started and ' bg-warning' or ' bg-danger'}">
+                    <small t-if="not event_id.event_registrations_started">
+                      Soon
+                    </small>
+                    <small t-else="">
+                      Closed
+                    </small>
+                  </div>
+                  <!-- TODO: Uncomment to show date -->
+                  <img
+                      t-att-src="image_data_uri(event_id.image_1024) if event_id.image_256 else '/aaoi_website/static/src/img/Frame_blue.png'"
+                      class="aaoi_list_training_img"></img>
+                  <!--<p class="aaoi_current_training_date_text">
+                    <span t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='dd')"/>
+                    <br/>
+                    <span t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='MMM')"/>
+                  </p>-->
+                </div>
+                <div class="aaoi_list_training_about">
+                  <t t-foreach="event_id.tag_ids.filtered(lambda tag: tag.category_id.is_published)[:1]" t-as="tag">
+                    <p class="aaoi_blocks_Event_type" t-esc="tag.name"/>
+                  </t>
+                  <h1 class="aaoi_blocks_Event_title" t-att-title="event_id.name"
+                      t-esc="event_id.name[:50] + '...' if event_id.name and len(event_id.name) &gt; 50 else event_id.name"/>
+                  <div class="row">
+                    <div class="col-4 border_solid_right">
+                      <h6 class="aaoi_list_training_about_text">
+                        Duration:
+                        <span
+                            t-esc="'%s %s' % (str(event_id.duration).zfill(2), dict(event_id.fields_get(['unit'])['unit']['selection'])[event_id.unit])"/>
+                      </h6>
+                    </div>
+                    <div t-if="event_id.modality_id" class="col-4 pdr-0">
+                      <h6 class="aaoi_list_training_about_text">
+                        Mode :
+                        <span t-esc="event_id.modality_id.name"/>
+                      </h6>
+                    </div>
+                    <t t-set="tickets"
+                       t-value="event_id.event_ticket_ids.filtered(lambda ticket: not ticket.is_expired)"/>
+                    <t t-set="ir_http" t-value="request.env['ir.http']"/>
+                    <div class="col-4 border_solid_left">
+                      <h6 class="aaoi_list_training_about_text"
+                          t-att-title="ir_http.formatLang(tickets.price, currency_obj=request.env.company.currency_id) if tickets.price else ''">
+                        Fees :
+                        <t t-if="tickets.price">
+                          <span t-esc="tickets.price"
+                                t-options="{'widget': 'monetary', 'display_currency': request.env.company.currency_id}"/>
+                        </t>
+                        <span t-else="" class="font-weight-bold text-uppercase">Free</span>
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </t>
+        <t t-if="not event_ids">
+          <div class="h2 mb-3">
+            No trainings found.
+          </div>
+        </t>
+        <div class="training_pager form-inline justify-content-center py-3 col-12 mb-4">
+          <t t-call="portal.pager"/>
+        </div>
+      </div>
+      <div class="aaoi_list_training_noChoice mt-5 mb-5">
+        <div class="row">
+          <div class="col-12 col-md-7 col-lg-8">
+            <p class="aaoi_list_training_noChoice_text">
+              None of the courses listed correspond to my research and my expectations.
+            </p>
+          </div>
+          <div class="col-12 col-md-5 col-lg-4">
+            <a href="/contactus" class="aaoi_btn_other">
+              I express my requirements
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="trainings" name="Trainings">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div id="wrap" class="oe_structure oe_empty aaoi_trainings">
+        <div class="container aaoi_trainings_container">
+          <div class="row">
+            <t t-call="aaoi_website.aaoi_banner_training"/>
+            <t t-call="aaoi_website.aaoi_aside_training"/>
+            <t t-call="aaoi_website.aaoi_list_training"/>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <template id="aaoi_training_details" name="Training Details">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div class="container aaoi_training_details_container">
+        <div class="row">
+          <div class="col-lg-8 aaoi-content-wrapper">
+            <section id="formation_cover">
+              <div class="container">
+                <h1 class="aaoi_customized_training_title">
+                  <img t-if="event.logo" t-att-src="image_data_uri(event.logo)" width="70"
+                       class="img-fluid"/>
+                  <t t-esc="event.name"/>
+                </h1>
+                <p class="aaoi_customized_training_text font-weight-bold my-3">
+                  <t t-esc="event.description"/>
+                </p>
+                <div class="d-flex align-items-end w-100">
+                  <t t-set="tickets"
+                     t-value="event.event_ticket_ids.filtered(lambda ticket: not ticket.is_expired)"/>
+                  <t t-set="ir_http" t-value="request.env['ir.http']"/>
+                  <div class="text-white info-event">
+                    Duration:
+                    <br/>
+                    <strong class="font-weight-bold d-block"
+                            t-esc="'%s %s' % (str(event.duration).zfill(2), dict(event.fields_get(['unit'])['unit']['selection'])[event.unit])"/>
+                  </div>
+                  <div t-if="event.modality_id" class="text-white info-event">
+                    Mode :
+                    <br/>
+                    <strong class="font-weight-bold d-block" t-esc="event.modality_id.name"/>
+                  </div>
+                  <div class="text-white info-event">
+                    Fees :
+                    <br/>
+                    <strong class="font-weight-bold d-block">
+                      <t t-if="tickets.price">
+                        <span t-esc="tickets.price"
+                              t-options="{'widget': 'monetary', 'display_currency': request.env.company.currency_id}"/>
+                      </t>
+                      <span t-else="" class="font-weight-bold text-uppercase">Free</span>
+                    </strong>
+                  </div>
+                  <div t-if="event.message_main_attachment_id" class="ml-auto">
+                    <t t-set="attachment" t-value="event.message_main_attachment_id[:1]"/>
+                    <a class="down-pdf" t-att-href="'/download?attachment_id=%i' % attachment.id" target="_blank">
+                      <i class="picto picto-download"></i>
+                      Download as PDF
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section t-if="event.note" id="objectif">
+              <h2 class="trainings_title mb24 fix-gradient">
+                Purpose of the training
+              </h2>
+              <p t-esc="event.note"/>
+            </section>
+            <section t-if="event.target_ids" id="cible">
+              <div class="container">
+                <h2 class="trainings_title mb24 fix-gradient">
+                  Training target
+                </h2>
+                <div class="grid grid-cible">
+                  <t t-foreach="event.target_ids" t-as="targed_id">
+                    <div class="item">
+                      <i class="picto picto-profile"></i>
+                      <t t-esc="targed_id.name"/>
+                    </div>
+                  </t>
+                </div>
+              </div>
+            </section>
+            <section t-if="planning_list" id="program">
+              <div class="container">
+                <h2 class="trainings_title mb24 fix-gradient">
+                  Programs &amp; Schedule
+                </h2>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <t t-set="index" t-value="0"/>
+                  <t t-foreach="planning_list" t-as="planning">
+                    <li class="nav-item" role="presentation">
+                      <a t-attf-class="nav-link #{index == 0 and ' active' or ''}"
+                         t-att-id="'day-' + str(index+1) +'-tab'" data-toggle="tab"
+                         t-att-href="'#day_' + str(index+1)" role="tab"
+                         t-att-aria-controls="'day_' + str(index+1)" aria-selected="true">
+                        <t t-esc="planning_list[planning]['name']"/>
+                      </a>
+                    </li>
+                    <t t-set="index" t-value="index+1"/>
+                  </t>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <t t-set="index" t-value="0"/>
+                  <t t-foreach="planning_list" t-as="planning">
+                    <div t-attf-class="tab-pane fade #{index == 0 and ' show active' or ''}"
+                         t-att-id="'day_' + str(index+1)"
+                         role="tabpanel" t-att-aria-labelledby="'day-' + str(index+1) +'-tab'">
+                      <ul class="grid grid-program">
+                        <t t-foreach="planning_list[planning]['details']" t-as="details">
+                          <li class="item">
+                            <t t-esc="details['hour']" t-options='{"widget": "float_time"}'/>
+                            -
+                            <t t-esc="details['description']"/>
+                          </li>
+                        </t>
+                      </ul>
+                    </div>
+                    <t t-set="index" t-value="index+1"/>
+                  </t>
+                </div>
+              </div>
+            </section>
+            <div t-if="event.provided_ids" class="d-flex formation-ressources">
+              <div class="formation-ressources-item active">
+                Provided with the training
+              </div>
+              <t t-foreach="event.provided_ids" t-as="provided_id">
+                <div class="formation-ressources-item">
+                  <t t-esc="provided_id.type_id.name"/>
+                  <strong class="font-weight-bold d-block" t-esc="provided_id.description"/>
+                </div>
+              </t>
+            </div>
+          </div>
+          <t t-set="date_begin" t-value="event.date_begin"/>
+          <t t-set="date_end" t-value="event.date_end"/>
+          <div class="col-lg-4 aaoi-aside-wrapper">
+            <form
+                id="registration_form"
+                t-attf-action="/event/#{slug(event)}/registration/new" method="post"
+                itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/AggregateOffer">
+              <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+              <h3 class="trainings_title mb24 fix-gradient">
+                Available dates
+              </h3>
+              <div class="date-signin d-flex justify-content-between align-items-center my-2">
+                <div>
+                  <strong class="font-weight-bold"
+                          t-esc="ir_http.format_datetime(date_begin, tz=event.date_tz, dt_format='dd MMM Y')"/>
+                  <t t-if="not event.is_one_day">
+                    -
+                    <strong class="font-weight-bold"
+                            t-esc="ir_http.format_datetime(date_end, tz=event.date_tz, dt_format='dd MMM Y')"/>
+                  </t>
+                  <br/>
+                  <t t-if="event.event_registrations_open and event.seats_available > 0">
+                    Places:
+                    <span class="d-inline" t-esc="str(event.seats_available).zfill(2)"/>
+                    <span class="d-inline">
+                      available
+                    </span>
+                  </t>
+                </div>
+                <t t-if="not event.is_participating and event.event_registrations_open and not event.event_registrations_sold_out">
+                  <button
+                      type="submit"
+                      class="aaoi_btn_fulled aaoi-btn-small btn_current_training"
+                      t-attf-id="#{tickets.id if tickets else event.id}">
+                    Register
+                    <t t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)">
+                      (only
+                      <t t-esc="event.seats_available"/>
+                      available)
+                    </t>
+                  </button>
+                </t>
+                <t t-elif="event.is_participating">
+                  <button class="aaoi_btn_fulled aaoi-btn-small btn-success" disabled="1">
+                    Registered
+                  </button>
+                </t>
+                <t t-elif="not event.event_registrations_started">
+                  <div class="col-md-8 d-flex">
+                    <em class="mr-2">
+                      Registration starting on
+                      <span class="" t-esc="event.start_sale_datetime"
+                            t-options="{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}"/>
+                      <span t-esc="event.date_tz"/>
+                    </em>
+                  </div>
+                </t>
+                <t t-else="">
+                  <button class="aaoi_btn_fulled aaoi-btn-small btn-danger" disabled="1">
+                    <span t-if="event.event_registrations_sold_out">Sold Out</span>
+                    <span t-else="">Registrations Closed</span>
+                  </button>
+                </t>
+              </div>
+            </form>
+            <div class="proposition aaoi_list_training_noChoice my-2">
+              <p class="text-white">
+                The date not match my schedule.
+              </p>
+              <a href="/contactus" class="aaoi_btn_other">
+                I would suggest a date
+              </a>
+            </div>
+            <div class="aaoi-share-btn">
+
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <strong class="font-weight-bold">
+                    Share :
+                  </strong>
+                </li>
+                <t t-set="_classes" t-valuef="o_wevent_sidebar_social mx-n1"/>
+                <t t-set="_link_classes" t-valuef="o_wevent_social_link"/>
+                <div t-attf-class="s_share text-left #{_classes}">
+                  <a t-if="not _exclude_share_links or not 'facebook' in _exclude_share_links"
+                     href="https://www.facebook.com/sharer/sharer.php?u={url}"
+                     t-attf-class="s_share_facebook #{_link_classes}" target="_blank">
+                    <i t-attf-class="fa fa-facebook #{not _link_classes and 'rounded shadow-sm'}"/>
+                  </a>
+                  <a t-if="not _exclude_share_links or not 'linkedin' in _exclude_share_links"
+                     href="https://www.linkedin.com/sharing/share-offsite/?url={url}"
+                     t-attf-class="s_share_linkedin #{_link_classes}" target="_blank">
+                    <i t-attf-class="fa fa-linkedin #{not _link_classes and 'rounded shadow-sm'}"/>
+                  </a>
+                  <a t-if="not _exclude_share_links or not 'email' in _exclude_share_links"
+                     href="mailto:?body={url}&amp;subject={title}" t-attf-class="s_share_email #{_link_classes}">
+                    <i t-attf-class="fa fa-envelope #{not _link_classes and 'rounded shadow-sm'}"/>
+                  </a>
+                </div>
+              </ul>
+            </div>
+            <div class="coach">
+              <h3 class="trainings_title fix-gradient">
+                Training provided by
+              </h3>
+              <div class="card card-body">
+                <img
+                    t-att-src="image_data_uri(event.user_id.partner_id.image_1024)" height="320"
+                    class="img-fluid"/>
+                <div class="coach-information">
+                  <h4 class="aaoi-text-card font-weight-bold">
+                    AAOI Certified Trainer
+                  </h4>
+                  <span class="coach-post" t-esc="event.user_id.partner_id.function"/>
+                  <p t-esc="event.user_id.partner_id.comment"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

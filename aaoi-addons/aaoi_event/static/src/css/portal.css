@@ -1,0 +1,103 @@
+section {
+    display: block;
+}
+
+.portal-container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.localize .portal-container {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 30px 20px 20px;
+    max-width: 1024px;
+    margin-top: 40px;
+}
+
+.left-infos {
+    flex: 0 0 35%;
+}
+
+.left-infos p {
+    color: #000000;
+    font-size: 12px;
+    margin-top: 10px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.left-infos p::before {
+    background-color: #ff0000;
+    border-radius: 5px;
+    bottom: 8px;
+    box-shadow: 1px 2px 4px 0 rgba(255, 0, 0, 0.3);
+    content: "";
+    height: 10px;
+    left: 16px;
+    position: absolute;
+    width: 10px;
+}
+
+.right-infos {
+    flex: 0 0 60%;
+    position: relative;
+}
+
+.portal-block {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 2px 3px 8px 0 rgba(177, 187, 195, 0.2);
+    padding: 34px 12px;
+    position: relative;
+    border-radius: 16.5px;
+}
+
+.right-infos p {
+    float: left;
+    width: calc(100% - 145px);
+}
+
+.right-infos p span {
+    color: #000000;
+    display: inline-block;
+    font-weight: 400;
+}
+
+.right-infos p span.r-infos {
+    color: #64739d;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 175px;
+}
+
+/* ALL RESPONSIVE PORTAL */
+
+@media screen and (max-width: 1024px) {
+    .left-infos {
+        align-items: center;
+        display: flex;
+        flex: 0 0 100%;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+
+    .right-infos {
+        flex: 0 0 100%;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .right-infos p {
+        width: 100%;
+    }
+}

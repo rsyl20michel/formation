@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_modality,event.modality,model_event_modality,,1,1,1,1
+access_event_target,event.target,model_event_target,,1,1,1,1
+access_event_provided,event.provided,model_event_provided,,1,1,1,1
+access_event_planning,event.planning,model_event_planning,,1,1,1,1
+access_event_provided_type,event.provided.type,model_event_provided_type,,1,1,1,1
+access_event_testimonial,event.testimonial,model_event_testimonial,,1,1,1,1
+access_event_certificate,event.certificate,model_event_certificate,,1,1,1,1
+access_event_certificate_type,event.certificate.type,model_event_certificate_type,,1,1,1,1
+access_record.qty_per_page,record.qty_per_page,model_record_qty_per_page,,1,1,1,1
+

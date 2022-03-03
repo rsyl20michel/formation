@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <!-- Banner -->
+  <template id="aaoi_banner_snippets" name="Banner">
+    <section class="aaoi_banner_snippets_section">
+      <div class="aaoi_banner_snippets_container">
+        <div class="container-fluid">
+          <div class="row align-items-center aaoi_banner_snippets_background">
+            <div class="col-12 col-sm-12 col-lg-7">
+              <div class="aaoi_banner_snippets_text_content">
+                <p class="aaoi_banner_snippets_text colored-primary">
+                  Excellence - Innovation - Commitment
+                </p>
+                <h1 class="aaoi_banner_snippets_title">
+                  Accompaniment Center
+                </h1>
+                <h1 class="aaoi_banner_snippets_title_second">
+                  <b>
+                    in IT expertise training
+                  </b>
+                </h1>
+                <div class="mt-5">
+                  <a href="/planning" class="aaoi_btn_bordered mr-4 home">
+                    <i class="picto picto-calendar"></i>
+                    Planning
+                    <t t-esc="datetime.datetime.now().strftime('%Y')"/>
+                  </a>
+                  <a href="/training" class="aaoi_btn_fulled home">
+                    <i class="picto picto-paper"></i>
+                    Training catalog
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-lg-5">
+              <div class="aaoi_banner_snippets_img_content">
+                <img src="/aaoi_website/static/src/img/img_first_attachs.png" class="aaoi_banner_snippets_img"></img>
+              </div>
+            </div>
+          </div>
+          <div class="aaoi_banner_snippets_other_content">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="aaoi_banner_snippets_other_text">
+                  <h5 class="aaoi_banner_snippets_other_tittle mb-3">
+                    Quality training
+                  </h5>
+                  <p class="aaoi_banner_snippets_other_text_text mb-0">
+                    Access high-level training from experienced instructors and obtain international certifications.
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="aaoi_banner_snippets_other_text">
+                  <h5 class="aaoi_banner_snippets_other_tittle mb-3">
+                    Adapted to your needs
+                  </h5>
+                  <p class="aaoi_banner_snippets_other_text_text mb-0">
+                    Our training courses are designed to meet the most frequent needs of companies.
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="aaoi_banner_snippets_other_text">
+                  <h5 class="aaoi_banner_snippets_other_tittle mb-3">
+                    Specialized accompaniment
+                  </h5>
+                  <p class="aaoi_banner_snippets_other_text_text mb-0">
+                    Our oriented training courses give you access to a share of experiences and a transfer of skills
+                    from our trainers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Category -->
+  <template id="dynamic_aaoi_category">
+    <div class="aaoi_category_container container">
+      <div class="row">
+        <t t-foreach="tag_ids" t-as="tag_id">
+          <div class="col-6 col-md-3 text-center mb-3">
+            <a t-attf-href="/training?tags=#{tag_id.ids}">
+              <img class="aaoi_category_img" t-att-title="tag_id.name"
+                   t-att-src="image_data_uri(tag_id.image_256) if tag_id.image_256 else '/aaoi_website/static/src/img/img_category_adminReseau.png'"/>
+              <div class="aaoi_category_content">
+                <p class="aaoi_category_text mb-0" t-esc="tag_id.name"/>
+              </div>
+            </a>
+          </div>
+        </t>
+      </div>
+    </div>
+  </template>
+  <template id="aaoi_category_snippets" name="Category">
+    <section class="aaoi_category_section pt40 pb40">
+    </section>
+  </template>
+
+  <!-- Current Training -->
+  <template id="dynamic_aaoi_current_training">
+    <div class="aaoi_current_training_container">
+      <div class="container">
+        <div class="aaoi_blog_event_headline">
+          <h1 class="aaoi_blog_event_headline_title mb-0">
+            Current Trainings
+          </h1>
+          <a href="/planning" class="aaoi_btn_bordered blog_event_headline">
+            View the training schedule
+          </a>
+        </div>
+        <div class="row">
+          <t t-set="ir_http" t-value="request.env['ir.http']"/>
+          <t t-if="event_ids" t-foreach="event_ids" t-as="event_id">
+            <t t-set="date_begin" t-value="event_id.date_begin"/>
+            <div class="col-12 col-md-12 col-lg-4">
+              <form
+                  id="registration_form"
+                  t-attf-action="/event/#{slug(event_id)}/registration/new" method="post"
+                  itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/AggregateOffer">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="aaoi_current_training_content">
+                  <div class="aaoi_current_training_content_img">
+                    <!-- Participating -->
+                    <div t-if="event_id.is_participating" class="o_ribbon_right bg-success text-uppercase">
+                      <small>
+                        Registered
+                      </small>
+                    </div>
+                    <div t-if="not event_id.event_registrations_open or event_id.event_registrations_sold_out"
+                         t-attf-class="o_ribbon_right text-uppercase #{not event_id.event_registrations_started and ' bg-warning' or ' bg-danger'}">
+                      <small t-if="not event_id.event_registrations_started">
+                        Soon
+                      </small>
+                      <small t-else="">
+                        Closed
+                      </small>
+                    </div>
+                    <img
+                        t-att-src="image_data_uri(event_id.image_1024) if event_id.image_256 else '/aaoi_website/static/src/img/current_training_img.png'"
+                        class="aaoi_current_training_img"></img>
+                    <p class="aaoi_current_training_date_text">
+                      <span t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='dd')"/>
+                      <br/>
+                      <span t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='MMM')"/>
+                    </p>
+                  </div>
+                  <div class="aaoi_current_training_about">
+                    <div class="aaoi_current_training_about_title_date">
+                      <p class="aaoi_current_training_date_show_hover"
+                         t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='dd MMMM')"/>
+                      <t t-foreach="event_id.tag_ids.filtered(lambda tag: tag.category_id.is_published)[:1]"
+                         t-as="tag">
+                        <p class="aaoi_blocks_Event_type" t-esc="tag.name" t-att-title="tag.name"/>
+                      </t>
+                    </div>
+                    <a href="/">
+                      <h1 class="aaoi_blocks_Event_title" t-att-title="event_id.name"
+                          t-esc="event_id.name[:40] + '...' if event_id.name and len(event_id.name) &gt; 40 else event_id.name"/>
+                    </a>
+                    <div class="row">
+                      <div class="col-4 border_solid_right">
+                        <h6 class="aaoi_current_training_about_text">
+                          Duration:
+                          <span
+                              t-esc="'%s %s' % (str(event_id.duration).zfill(2), dict(event_id.fields_get(['unit'])['unit']['selection'])[event_id.unit])"/>
+                        </h6>
+                      </div>
+                      <div t-if="event_id.modality_id" class="col-4 pdr-0">
+                        <h6 class="aaoi_current_training_about_text">
+                          Mode :
+                          <span t-esc="event_id.modality_id.name"/>
+                        </h6>
+                      </div>
+                      <div t-if="event_id.seats_available > 0" class="col-4 border_solid_left">
+                        <h6 class="aaoi_current_training_about_text">
+                          Places :
+                          <span class="d-inline" t-esc="str(event_id.seats_available).zfill(2)"/>
+                          <span class="d-inline">
+                            available
+                          </span>
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="aaoi_current_training_show_hover_mobile">
+                      <t t-set="tickets"
+                         t-value="event_id.event_ticket_ids.filtered(lambda ticket: not ticket.is_expired)"/>
+                      <p class="aaoi_current_training_price">
+                        Fees :
+                        <t t-if="tickets.price">
+                          <span t-esc="tickets.price"
+                                t-options="{'widget': 'monetary', 'display_currency': request.env.company.currency_id}"/>
+                        </t>
+                        <span t-else="" class="font-weight-bold text-uppercase">Free</span>
+                      </p>
+                      <div class="aaoi_current_training_link">
+                        <a t-att-href="'/training/%s' % (slug(event_id))"
+                           class="aaoi_btn_another_other current_training">
+                          Read more
+                        </a>
+                        <button
+                            t-if="not event_id.is_participating and event_id.event_registrations_open and not event_id.event_registrations_sold_out"
+                            type="submit"
+                            class="aaoi_btn_other btn_current_training current_training"
+                            t-attf-id="#{tickets.id if tickets else event_id.id}">
+                          Register
+                          <t t-if="event_id.seats_limited and event_id.seats_max and event_id.seats_available &lt;= (event_id.seats_max * 0.2)">
+                            (only
+                            <t t-esc="event.seats_available"/>
+                            available)
+                          </t>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </t>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template id="aaoi_current_training_snippets" name="Current Training">
+    <section class="aaoi_current_training_section pt40 pb40">
+    </section>
+  </template>
+
+  <!-- Customized Training -->
+  <template id="aaoi_customized_training_snippets" name="Customized training">
+    <section class="aaoi_customized_training_snippets_section">
+      <div class="aaoi_customized_training_snippets_container container">
+        <div class="row align-items-center">
+          <div class="col-12 col-sm-12 col-lg-6 first_col_customized_training">
+            <h1 class="aaoi_customized_training_snippets_title">
+              Customized training
+            </h1>
+            <p class="aaoi_customized_training_snippets_text mb-0">
+              Design with us tailor-made training courses adapted to your real needs, which can effectively meet the
+              specific challenges of your company.
+            </p>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3 second_col_customized_training">
+            <p class="aaoi_customized_training_snippets_list">
+              <i class="picto picto-feather-check"></i>
+              Analysis of your needs
+            </p>
+            <p class="aaoi_customized_training_snippets_list">
+              <i class="picto picto-feather-check"></i>
+              Co-designing
+            </p>
+            <p class="aaoi_customized_training_snippets_list">
+              <i class="picto picto-feather-check"></i>
+              Deployment &amp; monitoring
+            </p>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3 text-center">
+            <a href="/customized-training" class="aaoi_btn_other">
+              Read more
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Learn More -->
+  <template id="aaoi_learn_more_snippets" name="Learn More">
+    <section class="aaoi_learn_more_snippets_section">
+      <div class="aaoi_learn_more_snippets_container pt40 pb40">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-12 col-lg-5 col-md-6">
+              <div class="aaoi_learn_more_snippets_img_content">
+                <img src="/aaoi_website/static/src/img/learn_more_img.png" class="aaoi_learn_more_snippets_img"></img>
+              </div>
+            </div>
+            <div class="col-12 col-lg-7 col-md-6">
+              <div class="aaoi_learn_more_snippets_text_content">
+                <h1 class="aaoi_learn_more_snippets_title">
+                  ArkeUp Academy,
+                  <br/>
+                  always in innovation
+                </h1>
+                <p class="aaoi_learn_more_snippets_text">
+                  Known as a training center specialized in the digital domain, ArkeUp Academy Indian Ocean remains
+                  attentive to its customers. In addition to the usual themes of web and mobile development, network
+                  administration and security, operating systems and project management, companies also contact us for
+                  more specific aspects...
+                </p>
+                <div>
+                  <a href="/contactus?learn_more=true" class="aaoi_btn_fulled ensavoirplus">
+                    Learn more about AAOI
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Our Partners -->
+  <template id="aaoi_partner_snippets" name="Partners">
+    <section class="aaoi_partner_snippets_section">
+      <div class="aaoi_partner_snippets_container pt40 pb40">
+        <div class="container">
+          <div class="aaoi_partner_snippets_content">
+            <h1 class="aaoi_partner_snippets_title">
+              Our partners
+            </h1>
+            <div class="row justify-content-center">
+              <div class="col-6 col-md-3 col-lg-2">
+                <div class="aaoi_partner_snippets_list">
+                  <div class="aaoi_partner_snippets_item">
+                    <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/google_cloud.png"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <div class="aaoi_partner_snippets_list">
+                  <div class="aaoi_partner_snippets_item">
+                    <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/cisco.png"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <div class="aaoi_partner_snippets_list">
+                  <div class="aaoi_partner_snippets_item">
+                    <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/odoo.png"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <div class="aaoi_partner_snippets_list">
+                  <div class="aaoi_partner_snippets_item">
+                    <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/etech.png"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <div class="aaoi_partner_snippets_list">
+                  <div class="aaoi_partner_snippets_item">
+                    <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/arkeup.png"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Testimonial -->
+  <template id="aaoi_testimonial_modal" name="Testimonial Modal">
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel"
+         aria-hidden="true">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="modal-dialog modal-full-height modal-right modal-notify modal-info video_modal_aaoi"
+             role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="aaoi_partner_snippets_title mb-0" id="exampleModalLongTitle">Testimonial</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="false">&amp;times;</span>
+              </button>
+            </div>
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <div class="modal-body">
+              <div class="alert alert-success" role="alertdialog">
+                <div>
+                  <i class="fa fa-graduation-cap"></i>
+                  <span class="oe_event_name"/>
+                </div>
+              </div>
+              <h4 class="oe_event_name aaoi_blocks_Event_title"></h4>
+              <div class="md-form">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="" allowfullscreen="1"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary waves-effect waves-light subscribe aaoi_btn_fulled ensavoirplus"
+                      type="submit">
+                <i class="fa fa-star ml-1"></i>
+                I would like to register for this course
+              </button>
+              <a type="button" class="btn btn-outline-primary waves-effect aaoi_btn_other" data-dismiss="modal">
+                Cancel
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </template>
+  <template id="dynamic_aaoi_testimonial">
+    <div class="container aaoi_testimonial_container">
+      <h1 class="aaoi_blog_event_headline_title mb40">
+        The testimonials
+      </h1>
+      <t t-call="aaoi_website.aaoi_testimonial_modal"/>
+      <div id="carouselTestimony" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <div t-if="testimonial_ids" class="carousel-inner row w-100 mx-auto">
+          <t t-foreach="range(0, round(len(testimonial_ids) / 3))" t-as="nb">
+            <t t-set="values" t-value="testimonial_ids[nb*3:(nb*3)+3]"/>
+            <div t-attf-class="carousel-item #{nb == 0 and 'active' or None}">
+              <div class="row">
+                <div t-foreach="values" t-as="val" class="d-flex flex-grow-0 flex-shrink-0 col-12 col-md-4">
+                  <div class="testimonial_content">
+                    <div class="testimonial_link_content">
+                      <img t-if="val.thumbnail" t-att-src="image_data_uri(val.thumbnail)"
+                           class="aaoi_testimonial_img"
+                           t-att-alt="val.event_id.name"></img>
+                      <img t-else="" t-att-src="val.thumbnail_url"
+                           class="aaoi_testimonial_img"
+                           t-att-alt="val.event_id.name"></img>
+                      <a href="/" class="link_play" t-att-video-url="val.video_url"
+                         t-att-event-name="val.event_id.name or ''"
+                         t-att-form-action="'/training/%s' % (slug(val.event_id))">
+                        <img src="/aaoi_website/static/src/img/play_button.svg" class="aaoi_testimonial_play_img"
+                             alt="play button"></img>
+                      </a>
+                      <img src="/aaoi_website/static/src/img/decorator_tesimonial.png"
+                           class="aaoi_testimonial_decorator_img" alt="play button"></img>
+                    </div>
+                    <div class="testimonial_text_content">
+                      <h4 class="testimonial_text_name">
+                        <t t-esc="val.partner_id.name"/>
+                      </h4>
+                      <h5 class="testimonial_text_post">
+                        <t t-esc="val.company_name"/>
+                      </h5>
+                      <P class="testimonial_text_other">
+                        <t t-esc="val.short_description"/>
+                      </P>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </div>
+        <a class="carousel-control-prev d-none" href="#carouselTestimony" role="button" data-slide="prev">
+          <span class="fa fa-chevron-circle-left fa-2x"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next d-none" href="#carouselTestimony" role="button" data-slide="next">
+          <span class="fa fa-chevron-circle-right fa-2x"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        <!--carousel-indicators is based on number of carousel-items -->
+        <ol t-if="testimonial_ids" class="carousel-indicators aaoi_testimonial">
+          <t t-foreach="range(0, round(len(testimonial_ids) / 3))" t-as="nb">
+            <li data-target="#carouselTestimony" t-att-data-slide-to="'0' if nb == 0 else nb"
+                t-attf-class="#{nb == 0 and 'active' or None}"></li>
+          </t>
+        </ol>
+      </div>
+    </div>
+  </template>
+  <template id="aaoi_testimonial_snippets" name="Testimonial">
+    <section class="pt32 pb32 o_colored_level aaoi_testimonial_section">
+    </section>
+  </template>
+
+  <!-- Blog &amp; Event -->
+  <template id="dynamic_aaoi_blog_event">
+    <div class="aaoi_blog_event_container">
+      <div class="container">
+        <div class="aaoi_blog_event_headline">
+          <h1 class="aaoi_blog_event_headline_title mb-0">
+            Blog &amp; Events
+          </h1>
+          <a href="/blog" class="aaoi_btn_bordered blog_event_headline">
+            See all articles &amp; events
+          </a>
+        </div>
+        <div class="row">
+          <t t-set="ir_http" t-value="request.env['ir.http']"/>
+          <div t-if="event_id" class="col-12 col-md-12 col-lg-6">
+            <t t-set="date_begin" t-value="event_id.date_begin"/>
+            <t t-set="date_end" t-value="event_id.date_end"/>
+            <div class="aaoi_blocks_Event">
+              <div class="aaoi_blocks_Event_content_img">
+                <img
+                    t-att-src="image_data_uri(event_id.image_1024) if event_id.image_256 else '/aaoi_website/static/src/img/Frame_blue.png'"
+                    class="aaoi_blocks_Event_img"></img>
+              </div>
+              <div class="aaoi_blocks_Event_about">
+                <p class="aaoi_blocks_Event_type">
+                  Event
+                </p>
+                <a t-att-href="'/training/%s' % (slug(event_id))">
+                  <h1 class="aaoi_blocks_Event_title" t-esc="event_id.name"/>
+                </a>
+                <div class="media aaoi_blocks_Event_author">
+                  <img class="mr-3 aaoi_blocks_Event_author_img"
+                       t-att-src="image_data_uri(event_id.user_id.image_256) if event_id.user_id.image_256 else '/aaoi_website/static/src/img/image_profil.png'"
+                       alt="Generic placeholder image"/>
+                  <div class="media-body">
+                    <h5 t-if="event_id.user_id" class="mt-0 aaoi_blocks_Event_author_name"
+                        t-esc="event_id.user_id.name"/>
+                    <p t-if="event_id.user_id and event_id.user_id.partner_id" class="aaoi_blocks_Event_author_post"
+                       t-esc="event_id.user_id.partner_id.function"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4 col-md-2">
+                    <h6 class="aaoi_blocks_Event_time_text">
+                      <span t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='dd MMM')"/>
+                      <span t-esc="ir_http.format_datetime(date_begin, tz=event_id.date_tz, dt_format='y')"/>
+                      <t t-if="not event_id.is_one_day">
+                        -
+                        <span t-esc="ir_http.format_datetime(date_end, tz=event_id.date_tz, dt_format='dd MMM')"/>
+                        <span t-esc="ir_http.format_datetime(date_end, tz=event_id.date_tz, dt_format='y')"/>
+                      </t>
+                    </h6>
+                  </div>
+                  <div class="col-4 col-md-3">
+                    <h6 class="aaoi_blocks_Event_time_text">
+                      <span t-esc="ir_http.format_time(date_begin, tz=event_id.date_tz, time_format='short')"/>
+                      <span>
+                        To
+                        <span t-esc="ir_http.format_time(date_end, tz=event_id.date_tz, time_format='short')"/>
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="col-4 col-md-2">
+                    <h6 class="aaoi_blocks_Event_time_text">
+                      Mode :
+                      <span t-esc="event_id.modality_id.name"/>
+                    </h6>
+                  </div>
+                  <div class="col-12 col-md-5 text-center">
+                    <a t-att-href="'/training/%s' % (slug(event_id))" class="aaoi_btn_fulled BlogEvent">
+                      Read more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div t-if="post_ids" class="col-12 col-md-12 col-lg-6">
+            <div class="row row-blog">
+              <t t-foreach="post_ids" t-as="post_id">
+                <div class="col-12 col-md-6 col-blog">
+                  <a t-attf-href="/blog/#{slug(post_id.blog_id)}/#{slug(post_id)}">
+                    <div class="aaoi_blocks_Blog">
+                      <img
+                          t-att-src="json_scriptsafe.loads(post_id.cover_properties).get('background-image', 'none')[4:-1] if json_scriptsafe and post_id.cover_properties else '/aaoi_website/static/src/img/robot.png'"
+                          class="aaoi_blocks_Blog_img"></img>
+                      <div class="aaoi_Blog_content">
+                        <h6 class="aaoi_Blog_title" t-esc="post_id.name"/>
+                        <p class="aaoi_Blog_text" t-esc="post_id.subtitle"/>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </t>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template id="aaoi_blog_event_snippets" name="Blog &amp; Event">
+    <section class="aaoi_blog_event_section pt40 pb40">
+    </section>
+  </template>
+
+  <!-- Newsletter -->
+  <template id="aaoi_newsletter_snippets" name="Newsletter">
+    <section class="s_newsletter_block bg-200">
+      <div class="newsletter_container">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-4 col-lg-5">
+              <p class="newsletter_text mb-0">
+                Stay up to date with the latest news
+                <br/>
+                and news about Arkeup Academy.
+              </p>
+            </div>
+            <div class="col-12 col-md-8 col-lg-7 aaoi_newsletter_content">
+              <t t-set="list_id"
+                 t-value="request.env['mailing.list'].sudo().search([('is_public', '=', True)], limit=1)"/>
+              <div t-if="list_id" class="s_newsletter_subscribe_form js_subscribe" data-vxml="001"
+                   t-att-data-list-id="list_id.id"
+                   data-name="Newsletter Form">
+                <div class="input-group">
+                  <input type="email" name="email" class="js_subscribe_email form-control" placeholder="your email..."/>
+                  <span class="input-group-append">
+                    <a role="button" href="#" class="btn btn-primary js_subscribe_btn o_submit">I subscribe to newsletters</a>
+                    <a role="button" href="#" class="btn btn-success js_subscribed_btn d-none o_submit"
+                       disabled="disabled">Thanks
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Snippets -->
+  <template id="add_all_snippets_to_bar" name="Place into building blocks bar our snippets"
+            inherit_id="website.snippets">
+    <xpath expr="//div[@id='snippet_structure'][1]" position="after">
+      <div class="o_panel_header">
+        AAOI Snippets
+      </div>
+      <div class="o_panel_body">
+        <t t-snippet="aaoi_website.aaoi_banner_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_banner_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_category_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_category_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_customized_training_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_customized_training_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_learn_more_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_learn_more_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_partner_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_partner_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_blog_event_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_blog_event_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_current_training_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_current_training_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_testimonial_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_tesimonial_snippets_thumbs.png"/>
+        <t t-snippet="aaoi_website.aaoi_newsletter_snippets"
+           t-thumbnail="/aaoi_website/static/src/img/snippets_thumbnail/aaoi_newsletter_snippets_thumbs.png"/>
+      </div>
+    </xpath>
+  </template>
+</odoo>
