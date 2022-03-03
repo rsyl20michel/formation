@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="aboutus" name="About AAOI">
+    <t t-call="portal.portal_layout">
+      <t t-set="breadcrumbs_searchbar" t-value="True"/>
+      <!--  Navbar breadcrumb  -->
+      <t t-if="breadcrumbs_searchbar">
+        <t t-call="portal.portal_breadcrumbs"/>
+      </t>
+      <div id="wrap_about" class="oe_structure oe_empty mt16 aaoi_aboutus_container">
+        <section id="aaoi_snippet_cover">
+          <div class="container">
+            <div class="row">
+              <div class="col-md img-container">
+                <img src="/aaoi_website/static/src/img/ppa.png"/>
+              </div>
+              <div class="col-md-7 text-white">
+                <h1 class="aaoi_customized_training_title">ArkeUp Academy,
+                  <br/>
+                  excellence and innovation
+                </h1>
+                <p class="aaoi_customized_training_text font-weight-light">
+                  Digital technology is currently booming in Madagascar in all sectors of activity. The State is, among
+                  other things, very committed to the digital transformation process.
+                </p>
+                <p class="aaoi_customized_training_text font-weight-light">
+                  I was convinced that eTech- ArkeUp group, as the number 1 digital company in the area, had to
+                  participate in the collective effort to achieve this goal. It is with this vision that we created
+                  ArkeUp Academy Indian Ocean. Our mission is to train students, professionals, and collaborators of our
+                  colleagues, as well as
+                  to accompany public and private bodies in new, innovative fields that are recognized in international
+                  countries.
+                </p>
+                <div class="signature font-weight-light">
+                  <strong class="text-white font-weight-bold">Pierre Paul ARDILE</strong>
+                  <br/>
+                  CEO - Arkeup Group
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="aaoi_tree_column">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mx-auto mr-md-auto w-fixed">
+                  <h2 class="aaoi_banner_snippets_other_tittle mb-3">
+                    Our vision
+                  </h2>
+                  <p class="aaoi_banner_snippets_other_text_text mb-0">
+                    At ArkeUp Academy, we know and believe that becoming an expert in a field that we are passionate
+                    about is the best passionate about is the best satisfaction one can have.
+                  </p>
+                </div>
+
+              </div>
+              <div class="col-md-4">
+                <div class="mx-auto w-fixed">
+                  <h2 class="aaoi_banner_snippets_other_tittle mb-3">
+                    Our mission
+                  </h2>
+                  <p class="aaoi_banner_snippets_other_text_text mb-0">
+                    Accompany any individual or company wishing to achieve excellence in their chosen field.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mx-auto ml-md-auto w-fixed">
+                  <h2 class="aaoi_banner_snippets_other_tittle mb-3">
+                    Our values
+                  </h2>
+                  <p class="aaoi_banner_snippets_other_text_text mb-0">
+                    Excellence
+                    <br/>
+                    Innovation
+                    <br/>
+                    Commitment
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="aaoi_methodology">
+          <div class="container">
+            <img class="cofee-img" src="/aaoi_website/static/src/img/bulb-dynamic-color.svg"/>
+            <h2 class="aaoi_learn_more_snippets_title mb16">
+              Methodology
+            </h2>
+            <p class="font-weight-light mb32">
+              ArkeUp Academy Indian Ocean training courses are high level courses, initiated by experienced trainers,
+              both pedagogically and practically.
+            </p>
+            <div class="aaoi-row">
+              <div class="aaoi-col">
+                <h3 class="aaoi_banner_snippets_other_tittle font-weight-light">
+                  <strong
+                      class="aaoi_learn_more_snippets_title number">1.
+                  </strong>
+                  Pre-training
+                </h3>
+                <p class="aaoi_banner_snippets_other_text_text font-weight-bold">
+                  The profile of each candidate is studied before registration in order to offer them a curriculum that
+                  is more adapted to their level.
+                </p>
+              </div>
+              <div class="aaoi-col">
+                <h3 class="aaoi_banner_snippets_other_tittle font-weight-light">
+                  <strong
+                      class="aaoi_learn_more_snippets_title number">2.
+                  </strong>
+                  Training
+                </h3>
+                <p class="aaoi_banner_snippets_other_text_text font-weight-bold">
+                  The quality of the training is our guideline. Each participant is accompanied according to his or her
+                  learning pace.
+                </p>
+              </div>
+              <div class="aaoi-col">
+                <h3 class="aaoi_banner_snippets_other_tittle font-weight-light">
+                  <strong
+                      class="aaoi_learn_more_snippets_title number">3.
+                  </strong>
+                  Evaluation
+                </h3>
+                <p class="aaoi_banner_snippets_other_text_text font-weight-bold">
+                  At the end of each course, an evaluation will be made to materialize the acquired knowledge. The grade
+                  is attributed according to precise scales.
+                </p>
+              </div>
+              <div class="aaoi-col">
+                <h3 class="aaoi_banner_snippets_other_tittle font-weight-light">
+                  <strong
+                      class="aaoi_learn_more_snippets_title number">4.
+                  </strong>
+                  Follow-up
+                </h3>
+                <p class="aaoi_banner_snippets_other_text_text font-weight-bold">
+                  We provide your employees with a PDF version of the course material so that they can follow the
+                  courses virtually.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="aaoi_team_snippet" style="background-image: none;">
+          <div class="container ">
+            <h2 class="aaoi_learn_more_snippets_title mb16">
+              The pedagogical team
+            </h2>
+            <p class="font-weight-light mb32">
+              Our team is composed of young, passionate and qualified people who are always ready to listen to the needs
+              of companies.
+            </p>
+            <div id="aaoi_team_snippet" class="owl-carousel owl-theme">
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Hoby RASAMIMISA</h4>
+                    <span class="coach-post mb-0">Directeur</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Noah RAMBELOSON</h4>
+                    <span class="coach-post mb-0">Secrétaire Générale</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Brooklyn Simmons</h4>
+                    <span class="coach-post mb-0">Prof. Marketing Digital</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Darlene Robertson</h4>
+                    <span class="coach-post mb-0">Prof. Design Thinking</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Formateur Certifié AAOI</h4>
+                    <span class="coach-post mb-0">Senior developer @ Google</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Formateur Certifié AAOI</h4>
+                    <span class="coach-post mb-0">Senior developer @ Google</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item coach">
+                <div class="card card-body">
+                  <img class="img-fluid" src="/aaoi_website/static/src/img/coach-woman.png" height="320"/>
+                  <div class="coach-information">
+                    <h4 class="aaoi-text-card font-weight-bold">Formateur Certifié AAOI</h4>
+                    <span class="coach-post mb-0">Senior developer @ Google</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="aaoi_partner_snippets_section_medal">
+          <div class="aaoi_partner_snippets_container pt40 pb40">
+            <div class="container">
+              <img class="medal-img" src="/aaoi_website/static/src/img/medal.svg"/>
+              <div class="aaoi_partner_snippets_content">
+                <h1 class="aaoi_partner_snippets_title">
+                  Our partners
+                </h1>
+                <div class="row justify-content-center">
+                  <div class="col-6 col-md-3 col-lg-2">
+                    <div class="aaoi_partner_snippets_list">
+                      <div class="aaoi_partner_snippets_item">
+                        <img class="aaoi_partner_snippets_img"
+                             src="/aaoi_website/static/src/img/partner/google_cloud.png"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 col-lg-2">
+                    <div class="aaoi_partner_snippets_list">
+                      <div class="aaoi_partner_snippets_item">
+                        <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/cisco.png"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 col-lg-2">
+                    <div class="aaoi_partner_snippets_list">
+                      <div class="aaoi_partner_snippets_item">
+                        <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/odoo.png"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 col-lg-2">
+                    <div class="aaoi_partner_snippets_list">
+                      <div class="aaoi_partner_snippets_item">
+                        <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/etech.png"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 col-lg-2">
+                    <div class="aaoi_partner_snippets_list">
+                      <div class="aaoi_partner_snippets_item">
+                        <img class="aaoi_partner_snippets_img" src="/aaoi_website/static/src/img/partner/arkeup.png"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="aaoi_locaux">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="row mb16">
+                  <div class="col-6 ">
+                    <h1 class="aaoi_customized_training_title">
+                      Modern
+                      <br/>
+                      and Welcoming
+                      <br/>
+                      Infrastructure
+                    </h1>
+                  </div>
+                  <div class="col-6 ">
+                    <img class="img-fluid h-100" src="/aaoi_website/static/src/img/aaoi3.jpg"/>
+                  </div>
+                </div>
+                <div class="row mb-sm-3 mb-md-0 mb-3">
+                  <div class="col-6 ">
+                    <img class="img-fluid h-100" src="/aaoi_website/static/src/img/aaoi4.jpg"/>
+                  </div>
+                  <div class="col-6 ">
+                    <img class="img-fluid h-100" src="/aaoi_website/static/src/img/aaoi2.jpg"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid w-100 h-100" src="/aaoi_website/static/src/img/aaoi1.jpg"/>
+              </div>
+            </div>
+            <div class="grid grid-locaux">
+            </div>
+          </div>
+        </section>
+      </div>
+    </t>
+  </template>
+</odoo>

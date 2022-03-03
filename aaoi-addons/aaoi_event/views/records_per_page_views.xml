@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <!-- Records per Page -->
+  <record model="ir.ui.view" id="view_records_per_page_tree">
+    <field name="name">record.qty_per_page.tree</field>
+    <field name="model">record.qty_per_page</field>
+    <field name="arch" type="xml">
+      <tree string="Records per Page" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="records_per_page_action" model="ir.actions.act_window">
+    <field name="name">Records per Page</field>
+    <field name="res_model">record.qty_per_page</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+  <record id="menu_records_per_page" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.records_per_page_action"/>
+  </record>
+
+</odoo>

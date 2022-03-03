@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* aaoi_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20211221\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-08 08:40+0000\n"
+"PO-Revision-Date: 2022-02-08 08:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: aaoi_base
+#: model:ir.model.fields,field_description:aaoi_base.field_res_partner__birthday
+#: model:ir.model.fields,field_description:aaoi_base.field_res_users__birthday
+msgid "Birthday"
+msgstr "Date de naissance"
+
+#. module: aaoi_base
+#: model:ir.model,name:aaoi_base.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: aaoi_base
+#: model:ir.model,name:aaoi_base.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: aaoi_base
+#: model:ir.model.fields,field_description:aaoi_base.field_res_company__generic_catalog
+msgid "Generic Catalog"
+msgstr "Catalogue générique"
+
+#. module: aaoi_base
+#: model:ir.model.fields,field_description:aaoi_base.field_res_company__generic_catalog_filename
+msgid "Generic Catalog Filename"
+msgstr ""
+
+#. module: aaoi_base
+#: model_terms:ir.ui.view,arch_db:aaoi_base.view_company_form_inherit
+msgid "Upload your generic catalog."
+msgstr ""

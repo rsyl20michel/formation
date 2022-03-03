@@ -1,0 +1,385 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <record id="view_event_form_inherit" model="ir.ui.view">
+    <field name="name">event.event.form</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//label[@for='note']" position="before">
+        <label for="description" string="Description"/>
+        <br/>
+        <field nolabel="1" colspan="2" name="description" placeholder="Add a description..."/>
+      </xpath>
+      <xpath expr="//field[@name='date_tz']" position="before">
+        <label for="duration"/>
+        <div class="duration">
+          <div class="o_row">
+            <field name="duration"/>
+            <field name="unit"/>
+          </div>
+        </div>
+      </xpath>
+      <xpath expr="//field[@name='auto_confirm']" position="after">
+        <field name="logo" widget="image" class="oe_avatar"/>
+      </xpath>
+      <xpath expr="//field[@name='tag_ids']" position="after">
+        <field name="modality_id" options='{"no_create": True}'/>
+        <field name="target_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+      </xpath>
+      <xpath expr="//page[@name='event_communication']" position="after">
+        <page string="Provided with the training" name="provided">
+          <field name="provided_ids">
+            <tree editable="bottom">
+              <field name="sequence" widget="handle"/>
+              <field name="type_id" options='{"no_create": True}'/>
+              <field name="description"/>
+            </tree>
+          </field>
+        </page>
+        <page string="Programs &amp; Planning" name="programs_and_planning">
+          <field name="planning_ids" widget="section_and_note_one2many">
+            <tree editable="bottom">
+              <control>
+                <create name="add_line_control" string="Add a line"/>
+                <create name="add_section_control" string="Add a section"
+                        context="{'default_display_type': 'line_section'}"/>
+              </control>
+              <!-- Displayed fields -->
+              <field name="sequence" widget="handle"/>
+              <field name="name" widget="section_and_note_text"
+                     attrs="{'readonly': [('display_type', '=', False)]}"/>
+              <field name="hour" widget="float_time"/>
+              <field name="description"/>
+              <field name="display_type" force_save="1" invisible="1"/>
+            </tree>
+          </field>
+        </page>
+      </xpath>
+      <xpath expr="//div[hasclass('oe_title')]" position="before">
+        <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_event_registration_form_inherit" model="ir.ui.view">
+    <field name="name">event.registration.form</field>
+    <field name="model">event.registration</field>
+    <field name="inherit_id" ref="event.view_event_registration_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[@name='button_box']" position="inside">
+        <button type="object" class="oe_stat_button" icon="fa-certificate" name="action_view_certificates">
+          <div class="o_form_field o_stat_info">
+            <span class="o_stat_value">
+              <field name="total_certificates"/>
+            </span>
+            <span class="o_stat_text">Certificate(s)</span>
+          </div>
+        </button>
+      </xpath>
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="birthday"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="event_tag_category_view_form_inherit" model="ir.ui.view">
+    <field name="name">event.tag.category.view.form</field>
+    <field name="model">event.tag.category</field>
+    <field name="inherit_id" ref="event.event_tag_category_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='tag_ids']/tree/field[@name='color']" position="before">
+        <field name="image_1920" widget='image' class="oe_avatar" options='{"size": [40, 40]}'/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Event Modality -->
+  <record model="ir.ui.view" id="view_event_modality_tree">
+    <field name="name">event.modality.tree</field>
+    <field name="model">event.modality</field>
+    <field name="arch" type="xml">
+      <tree string="Events Modality" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="event_modality_action" model="ir.actions.act_window">
+    <field name="name">Event Modality</field>
+    <field name="res_model">event.modality</field>
+    <field name="view_mode">tree</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create an Event Modality
+      </p>
+    </field>
+  </record>
+
+  <record id="menu_event_modality" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.event_modality_action"/>
+  </record>
+
+  <!-- Event Target -->
+  <record model="ir.ui.view" id="view_event_target_tree">
+    <field name="name">event.target.tree</field>
+    <field name="model">event.target</field>
+    <field name="arch" type="xml">
+      <tree string="Events Target" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="color" widget="color_picker"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="event_target_action" model="ir.actions.act_window">
+    <field name="name">Event Target</field>
+    <field name="res_model">event.target</field>
+    <field name="view_mode">tree</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create an Event Target
+      </p>
+    </field>
+  </record>
+
+  <record id="menu_event_target" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.event_target_action"/>
+  </record>
+
+  <!-- Event Type -->
+  <record model="ir.ui.view" id="view_event_provided_type_tree">
+    <field name="name">event.provided.type.tree</field>
+    <field name="model">event.provided.type</field>
+    <field name="arch" type="xml">
+      <tree string="Events Target" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="event_provided_type_action" model="ir.actions.act_window">
+    <field name="name">Provided Type</field>
+    <field name="res_model">event.provided.type</field>
+    <field name="view_mode">tree</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create an Provided Type
+      </p>
+    </field>
+  </record>
+
+  <record id="menu_event_provided_type" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.event_provided_type_action"/>
+  </record>
+
+  <!-- Certificate -->
+  <record model="ir.ui.view" id="view_event_certificate_tree">
+    <field name="name">event.certificate.tree</field>
+    <field name="model">event.certificate</field>
+    <field name="arch" type="xml">
+      <tree string="Events Certificate" decoration-success="scores &gt;= 0.7"
+            decoration-warning="0.4 &lt;= scores &lt; 0.7" decoration-danger="scores &lt; 0.4">
+        <field name="name"/>
+        <field name="number"/>
+        <field name="type_id" widget="badge"/>
+        <field name="partner_id" widget="many2one_avatar"/>
+        <field name="user_id" widget="many2one_avatar"/>
+        <field name="date"/>
+        <field name="hourly_volume"/>
+        <field name="scores" widget="percentage"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_event_certificate_search" model="ir.ui.view">
+    <field name="name">event.certificate.search</field>
+    <field name="model">event.certificate</field>
+    <field name="arch" type="xml">
+      <search string="Certificates">
+        <field name="partner_id"/>
+        <field name="user_id"/>
+        <separator/>
+        <filter name="date" date="date" default_period="this_month"/>
+        <separator/>
+        <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+        <group expand="0" string="Group By">
+          <filter string="Event" name="event_id" domain="[]" context="{'group_by': 'event_id'}"/>
+          <filter string="Type" name="type_id" domain="[]" context="{'group_by': 'type_id'}"/>
+          <separator orientation="vertical"/>
+          <filter string="Date" context="{'group_by':'date:month'}" name="month"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_event_certificate_form" model="ir.ui.view">
+    <field name="name">event.certificate.form</field>
+    <field name="model">event.certificate</field>
+    <field name="arch" type="xml">
+      <form string="Certificate">
+        <field name="active" invisible="1"/>
+        <sheet>
+          <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                  attrs="{'invisible': [('active', '=', True)]}"/>
+          <field name="qrcode" readonly="True" widget="image" force_save="1" class="float-right"
+                 options='{"size": [150, 150]}' attrs="{'invisible': [('security_code', '=', False)]}"/>
+          <div class="oe_title">
+            <h1>
+              <field name="name" default_focus="1" placeholder="Name" required="1"
+                     attrs="{'invisible': ['|', ('event_id', '=', False), ('partner_id', '=', False)]}"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="number" readonly="1" force_save="1" attrs="{'invisible': [('number', '=', False)]}"/>
+              <field name="event_id" options='{"no_create": True}' widget="many2one_avatar" required="1"/>
+              <field name="type_id" options='{"no_create": True}' required="1"/>
+            </group>
+            <group>
+              <field name="date" required="1"/>
+              <field name="partner_id" options='{"no_create": True}' widget="many2one_avatar" required="1"/>
+              <field name="user_id" options='{"no_create": True}' widget="many2one_avatar"/>
+            </group>
+          </group>
+          <group>
+            <group>
+              <field name="hourly_volume"/>
+            </group>
+            <group>
+              <field name="scores" widget="percentage" decoration-success="scores &gt;= 0.7"
+                     decoration-warning="0.4 &lt;= scores &lt; 0.7" decoration-danger="scores &lt; 0.4"/>
+            </group>
+          </group>
+          <group>
+            <group>
+              <field name="security_code" class="text-danger" widget="CopyClipboardChar"/>
+            </group>
+            <group>
+              <field name="certificate_filename" invisible="1"/>
+              <field name="certificate" help="Upload your certificate file." filename="certificate_filename"/>
+            </group>
+          </group>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+    </field>
+  </record>
+
+  <record id="event_certificate_action" model="ir.actions.act_window">
+    <field name="name">Certificates</field>
+    <field name="res_model">event.certificate</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create a Certificate
+      </p>
+    </field>
+  </record>
+
+  <record id="menu_event_certificates" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.event_certificate_action"/>
+  </record>
+
+  <!-- Certificate Type -->
+  <record model="ir.ui.view" id="view_event_certificate_type_tree">
+    <field name="name">event.certificate.type.tree</field>
+    <field name="model">event.certificate.type</field>
+    <field name="arch" type="xml">
+      <tree string="Events Certificate Type" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="event_certificate_type_action" model="ir.actions.act_window">
+    <field name="name">Certificate Type</field>
+    <field name="res_model">event.certificate.type</field>
+    <field name="view_mode">tree</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create a Certificate Type
+      </p>
+    </field>
+  </record>
+
+  <record id="menu_event_certificate_type" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.event_certificate_type_action"/>
+  </record>
+
+  <!-- Event Testimonial -->
+  <record model="ir.ui.view" id="view_event_testimonial_tree">
+    <field name="name">event.testimonial.tree</field>
+    <field name="model">event.testimonial</field>
+    <field name="arch" type="xml">
+      <tree string="Events Testimonial">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="create_date"/>
+        <field name="create_uid" widget="many2one_avatar"/>
+        <field name="partner_id" widget="many2one_avatar"/>
+        <field name="company_name"/>
+        <field name="event_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_event_testimonial_form" model="ir.ui.view">
+    <field name="name">event.testimonial.form</field>
+    <field name="model">event.testimonial</field>
+    <field name="arch" type="xml">
+      <form string="Certificate">
+        <field name="active" invisible="1"/>
+        <sheet>
+          <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                  attrs="{'invisible': [('active', '=', True)]}"/>
+          <div class="oe_title">
+            <h1>
+              <field name="name" readonly="1"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="partner_id" widget="many2one_avatar" required="1"/>
+              <field name="video_url" widget="url" required="1"/>
+              <field name="event_id" required="1"/>
+            </group>
+            <group>
+              <field name="company_name"/>
+              <field name="short_description" required="1"/>
+              <field name="thumbnail" widget="image" class="oe_avatar"/>
+              <field name="thumbnail_url" invisible="1"/>
+            </group>
+          </group>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+    </field>
+  </record>
+
+  <record id="event_testimonial_action" model="ir.actions.act_window">
+    <field name="name">Testimonials</field>
+    <field name="res_model">event.testimonial</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create a Testimonial
+      </p>
+    </field>
+  </record>
+
+  <record id="menu_event_testimonial" model="ir.ui.menu">
+    <field name="action" ref="aaoi_event.event_testimonial_action"/>
+  </record>
+
+</odoo>

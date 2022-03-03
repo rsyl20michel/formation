@@ -1,0 +1,151 @@
+.calendar
+{
+  .pignose-calendar
+  {
+    width: 100%;
+    box-shadow: none;
+    border: none  ;
+  }
+
+  .pignose-calendar .pignose-calendar-top
+  {
+    box-shadow: none;
+    background-color: #fff;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    border: none;
+  }
+
+  .pignose-calendar .pignose-calendar-header
+  {
+    @include text-12-700;
+    @include aaoi-secondary-text-gradient;
+  }
+
+  .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat, .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sun
+  {
+    @include aaoi-secondary-text-gradient;
+  }
+
+  .pignose-calendar .pignose-calendar-unit a
+  {
+    @include text-12-300;
+    color: $aaoi-gray;
+
+  }
+
+  .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-sat a, .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-sun a
+  {
+    color: $aaoi-gray;
+  }
+
+  .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a
+  {
+    background-color: $aaoi-color-primary;
+    color: #fff;
+  }
+
+  .pignose-calendar .pignose-calendar-unit
+  {
+    height: 2.8rem;
+  }
+
+  .pignose-calendar .pignose-calendar-body
+  {
+    padding: 0;
+  }
+
+  .pignose-calendar .pignose-calendar-header
+  {
+    padding: 0;
+  }
+
+  .pignose-calendar .icon-arrow-left:before
+  {
+    display: none;
+  }
+
+  .pignose-calendar .icon-arrow-right:before
+  {
+    display: none;
+  }
+
+  .pignose-calendar .icon-arrow-left
+  {
+    background: url("../img/icon/arrow-left.png") center center no-repeat transparent;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-size: 100%;
+  }
+
+  .pignose-calendar .icon-arrow-right
+  {
+    background: url("../img/icon/arrow-right.png") center center no-repeat transparent;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-size: 100%;
+  }
+
+  .pignose-calendar .pignose-calendar-top .pignose-calendar-top-date
+  {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: auto !important;
+    padding: 15px !important;
+    position: static;
+    background: #FBF8FC;
+    border-radius: 22px;
+    span
+    {
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      color: $aaoi-gray;
+      margin-bottom: 0 !important;
+      text-transform: capitalize;
+    }
+  }
+
+  .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year
+  {
+    margin-left: 5px;
+    &:before
+    {
+      content: "-";
+      margin-right: 5px;
+    }
+  }
+
+  .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav
+  {
+    position: static;
+  }
+
+  .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev
+  {
+    float: none;
+    margin-left: 0;
+    margin-right: 10px;
+    padding-top: 5px;
+  }
+
+  .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-next
+  {
+    float: none;
+    margin-right: 0;
+    margin-left: 10px;
+    padding-top: 5px;
+  }
+
+  .pignose-calendar .pignose-calendar-unit .pignose-calendar-button-schedule-container
+  {
+    line-height: 0px;
+    margin-top: -8px;
+  }
+}

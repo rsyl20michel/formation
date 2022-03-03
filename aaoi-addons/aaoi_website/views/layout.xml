@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <!-- Header template -->
+  <template id="template_header_aaoi" inherit_id="website.layout" name="AAOI Header"
+            active="False">
+    <xpath expr="//header//nav" position="replace">
+      <div class="oe_structure oe_structure_solo" id="template_header_aaoi">
+        <section class="section_header_aaoi">
+          <div class="container">
+            <div class="top_header_container">
+              <div class="top_header_contact">
+                <div t-if="res_company.partner_id.email" class="media align-items-center mr-3">
+                  <img class="mr-3 mt-5px" src="/aaoi_website/static/src/img/message_white.png"
+                       alt="call aooi illustration"/>
+                  <div class="media-body">
+                    <a t-attf-href="mailto:#{res_company.partner_id.email}" class="footer_text_bold">
+                      <t t-esc="res_company.partner_id.email"/>
+                    </a>
+                  </div>
+                </div>
+                <div t-if="res_company.partner_id.mobile" class="media align-items-center">
+                  <img class="mr-3 mt-5px" src="/aaoi_website/static/src/img/Call_white.png"
+                       alt="call aooi illustration"/>
+                  <div class="media-body">
+                    <p class="footer_text_bold" t-esc="res_company.partner_id.mobile"/>
+                  </div>
+                </div>
+              </div>
+              <div class="top_header_language_social_media">
+                <div class="top_header_language mr-3">
+                  <t t-call="aaoi_website.aaoi_language_selector"/>
+                </div>
+                <div class="top_header_social_media">
+                  <div class="s_share aaoi_s_share">
+                    <a t-if="not _exclude_share_links or not 'facebook' in _exclude_share_links"
+                       href="https://www.facebook.com/sharer/sharer.php?u={url}"
+                       t-attf-class="s_share_facebook #{_link_classes}" target="_blank">
+                      <i class="fa fa-facebook m-1"/>
+                    </a>
+                    <a t-if="not _exclude_share_links or not 'linkedin' in _exclude_share_links"
+                       href="https://www.linkedin.com/sharing/share-offsite/?url={url}"
+                       t-attf-class="s_share_linkedin #{_link_classes}" target="_blank">
+                      <i class="fa fa-linkedin m-1"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <t t-call="website.navbar">
+        <t t-set="_navbar_classes" t-valuef="shadow-sm aaoi_nav test"/>
+        <div id="top_menu_container" class="container">
+          <!-- Brand -->
+          <a href="/" class="nav_logo">
+            <img class="nav_logo_img img-fluid" t-att-src="image_data_uri(res_company.logo)"/>
+          </a>
+          <!-- Navbar Toggler -->
+          <t t-call="website.navbar_toggler"/>
+          <!-- Call To Action -->
+          <!--<t t-call="website.placeholder_header_call_to_action">
+            <t t-set="_div_classes" t-valuef="d-block d-lg-none"/>
+          </t>-->
+          <!-- Navbar Collapse -->
+          <div id="top_menu_collapse" class="collapse navbar-collapse ml-lg-3">
+            <t t-call="website.navbar_nav">
+              <t t-set="_nav_class" t-valuef="flex-grow-1 aaoi_navbar_nav"/>
+              <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                <t t-call="website.submenu">
+                  <t t-if="submenu.url == '/training'">
+                    <t t-set="item_class" t-valuef="nav-item aaoi_nav_item"/>
+                  </t>
+                  <t t-else="">
+                    <t t-set="item_class" t-valuef="nav-item"/>
+                  </t>
+                  <t t-set="link_class" t-valuef="nav-link"/>
+                </t>
+                <div t-if="submenu.url == '/training'" class="aaoi_submenu_content">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-12 col-md-12 col-lg-6">
+                        <h5 class="aaoi_submenu_title current_trainning_submenu">
+                          Training categories
+                        </h5>
+                        <div class="row">
+                          <t t-set="ir_http" t-value="request.env['ir.http']"/>
+                          <t t-set="tag_ids" t-value="ir_http.get_mega_menu_infos()['tag_ids']"/>
+                          <t t-set="event_id" t-value="ir_http.get_mega_menu_infos()['event_id']"/>
+                          <t t-foreach="tag_ids" t-as="tag_id">
+                            <div class="col-6">
+                              <a t-attf-href="/training?tags=#{tag_id.ids}" class="aaoi_submenu_nav_link">
+                                <t t-esc="tag_id.name"/>
+                              </a>
+                            </div>
+                          </t>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-12 col-lg-6">
+                        <h5 t-if="event_id" class="aaoi_submenu_title current_trainning_submenu">
+                          Current Training
+                        </h5>
+                        <div class="row align-items-center m0Mobile">
+                          <div t-if="event_id"
+                               class="col-12 col-md-6 aaoi_customized_training_snippets_container aaoi_submenu">
+                            <t t-foreach="event_id.tag_ids.filtered(lambda tag: tag.category_id.is_published)[:1]"
+                               t-as="tag">
+                              <p class="aaoi_submenu_banner_text" t-esc="tag.name" t-att-title="tag.name"/>
+                            </t>
+                            <h1 class="aaoi_submenu_banner_title" t-att-title="event_id.name"
+                                t-esc="event_id.name[:40] + '...' if event_id.name and len(event_id.name) &gt; 40 else event_id.name"/>
+                            <div class="row">
+                              <div class="col-4 border_solid_right">
+                                <h6 class="aaoi_current_training_about_text aaoi_submenu reverse">
+                                  <t
+                                      t-esc="ir_http.format_datetime(event_id.date_begin, tz=event_id.date_tz, dt_format='dd MMM')"/>
+                                  <span
+                                      t-esc="ir_http.format_datetime(event_id.date_begin, tz=event_id.date_tz, dt_format='y')"/>
+                                </h6>
+                              </div>
+                              <div class="col-4 pdr-0">
+                                <h6 class="aaoi_current_training_about_text aaoi_submenu">
+                                  Duration:
+                                  <span
+                                      t-esc="'%s %s' % (str(event_id.duration).zfill(2), dict(event_id.fields_get(['unit'])['unit']['selection'])[event_id.unit])"/>
+                                </h6>
+                              </div>
+                              <div t-if="event_id.seats_available > 0" class="col-4 border_solid_left">
+                                <h6 class="aaoi_current_training_about_text aaoi_submenu">
+                                  Places :
+                                  <span class="d-inline" t-esc="str(event_id.seats_available).zfill(2)"/>
+                                  <span class="d-inline">
+                                    available
+                                  </span>
+                                </h6>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6">
+                            <div class="aaoi_header_list_content">
+                              <a href="/about-us" class="aaoi_submenu_main_link">
+                                <i class="picto picto-polygon-primary"></i>
+                                About AAOI
+                              </a>
+                              <a href="/contactus" class="aaoi_submenu_main_link">
+                                <i class="picto picto-polygon-primary"></i>
+                                Request for specific training
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </t>
+              <!-- Sign In -->
+              <t t-call="portal.placeholder_user_sign_in">
+                <t t-set="_item_class" t-valuef="nav-item ml-lg-auto"/>
+                <t t-set="_link_class" t-valuef="nav-link"/>
+              </t>
+              <!-- User Dropdown -->
+              <t t-call="portal.user_dropdown">
+                <t t-set="_user_name" t-value="True"/>
+                <t t-set="_user_name_class" t-valuef="font-weight-bold test"/>
+                <t t-set="_item_class" t-valuef="nav-item dropdown ml-lg-auto"/>
+                <t t-set="_link_class" t-valuef="nav-link"/>
+              </t>
+            </t>
+
+          </div>
+          <!-- Search-box outsid collaps -->
+          <div class="aaoi_search_box ml-lg-3">
+            <t t-call="website.website_search_box_input">
+              <t t-set="_classes" t-valuef="px-0"/>
+              <t t-set="search_type" t-valuef="trainings"/>
+              <t t-set="action" t-value="'/training'"/>
+              <t t-set="display_description" t-valuef="true"/>
+              <t t-set="display_detail" t-valuef="false"/>
+              <t t-set="placeholder">I am looking for: a training...</t>
+              <t t-set="search" t-value="search_term"/>
+            </t>
+          </div>
+        </div>
+      </t>
+    </xpath>
+  </template>
+
+  <!-- Footer template -->
+  <template id="template_footer_aaoi" inherit_id="website.layout" name="AAOI Footer" active="False">
+    <xpath expr="//div[@id='footer']" position="replace">
+      <t t-set="no_copyright" t-value="True"/>
+      <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+        <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+          <div class="footer_container pt48 pb48">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="footer_logo">
+                    <img class="aaoi_footer_logo_img img-fluid" t-att-src="image_data_uri(res_company.logo)"/>
+                  </div>
+                  <div class="media media_footer">
+                    <div class="media-body">
+                      <p class="footer_text_bold">
+                        <div t-field="res_company.partner_id"
+                             t-options='{"widget": "contact","fields": ["address"]}'/>
+                      </p>
+                    </div>
+                  </div>
+                  <div t-if="res_company.partner_id.email" class="media media_footer">
+                    <img class="mr-3 mt-5px" src="/aaoi_website/static/src/img/message_white.png"
+                         alt="call aooi illustration"/>
+                    <div class="media-body">
+                      <a t-attf-href="mailto:#{res_company.partner_id.email}" class="footer_text_bold">
+                        <t t-esc="res_company.partner_id.email"/>
+                      </a>
+                    </div>
+                  </div>
+                  <div t-if="res_company.partner_id.mobile" class="media media_footer">
+                    <img class="mr-3 mt-5px" src="/aaoi_website/static/src/img/Call_white.png"
+                         alt="call aooi illustration"/>
+                    <div class="media-body">
+                      <p class="footer_text_bold" t-esc="res_company.partner_id.mobile"/>
+                    </div>
+                  </div>
+                  <div class="top_header_social_media">
+                    <div class="s_share aaoi_s_share">
+                      <a href="https://www.facebook.com/ArkeUpAcademy" class="s_share_facebook" target="_blank">
+                        <i class="fa fa-facebook m-1"/>
+                      </a>
+                      <a href="https://mg.linkedin.com/company/arkeup-academy" class="s_share_linkedin" target="_blank">
+                        <i class="fa fa-linkedin m-1"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <t t-if="not tag_ids" t-set="tag_ids"
+                     t-value="request.env['event.tag.category'].sudo().search([], limit=1).mapped('tag_ids')"/>
+                  <h5 class="aaoi_footer_title">
+                    Training categories
+                  </h5>
+                  <div class="aaoi_footer_list_content">
+                    <t t-foreach="tag_ids" t-as="tag_id">
+                      <a t-attf-href="/training?tags=#{tag_id.ids}" class="aaoi_footer_list">
+                        <i class="picto picto-polygon"></i>
+                        <t t-esc="tag_id.name"/>
+                      </a>
+                    </t>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <h5 class="aaoi_footer_title">
+                    Informations &amp; Assistance
+                  </h5>
+                  <div class="aaoi_footer_list_content">
+                    <a href="/about-us" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      About AAOI
+                    </a>
+                    <a href="/customized-training" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      Customized training
+                    </a>
+                    <a href="/blog" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      Blog &amp; Events
+                    </a>
+                    <a href="/contactus" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      I am an instructor
+                    </a>
+                    <a href="/legal-notice" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      Legal Notice
+                    </a>
+                    <a href="/cgu" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      C.G.V / C.G.U
+                    </a>
+                    <a href="/contact" class="aaoi_footer_list">
+                      <i class="picto picto-polygon"></i>
+                      Contact
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <h5 class="aaoi_footer_title">
+                    The other Arkeup sites and universes
+                  </h5>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="aaoi_partner_snippets_list footer">
+                        <div class="aaoi_partner_snippets_item footer">
+                          <img class="aaoi_partner_snippets_img footer"
+                               src="/aaoi_website/static/src/img/partner/arkeup.png"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="aaoi_partner_snippets_list footer">
+                        <div class="aaoi_partner_snippets_item footer">
+                          <img class="aaoi_partner_snippets_img footer"
+                               src="/aaoi_website/static/src/img/partner/etech.png"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="aaoi_partner_snippets_list footer">
+                        <div class="aaoi_partner_snippets_item footer">
+                          <img class="aaoi_partner_snippets_img footer"
+                               src="/aaoi_website/static/src/img/partner/beepeeoo.png"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="aaoi_partner_snippets_list footer">
+                        <div class="aaoi_partner_snippets_item footer">
+                          <img class="aaoi_partner_snippets_img footer"
+                               src="/aaoi_website/static/src/img/partner/etech_topo.png"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="aaoi_partner_snippets_list footer">
+                        <div class="aaoi_partner_snippets_item footer">
+                          <img class="aaoi_partner_snippets_img footer"
+                               src="/aaoi_website/static/src/img/partner/esanandro.png"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer_copyright">
+            <p class="footer_copyright_text mb-0">
+              Copyright © ArkeUp Academy Indian Ocean -
+              <t t-esc="datetime.datetime.now().strftime('%Y')"/>
+            </p>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+
+  <template id="aaoi_language_selector" name="Language Selector">
+    <t t-set="active_lang" t-value="list(filter(lambda lg : lg[0] == lang, languages))[0]"/>
+    <t t-set="language_selector_visible" t-value="len(languages) &gt; 1"/>
+    <t t-set="flags" t-value="1"/>
+    <div t-attf-class="js_language_selector #{_div_classes}" t-if="language_selector_visible">
+      <button
+          t-attf-class="btn btn-sm btn-outline-secondary border-0 button_language_aaoi dropdown-toggle #{_btn_class}"
+          type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span t-if="not no_text"
+              class="align-middle"
+              t-esc="active_lang[2].split('/').pop()"/>
+      </button>
+      <div t-attf-class="dropdown-menu #{_dropdown_menu_class}" role="menu">
+        <t t-foreach="languages" t-as="lg">
+          <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+             t-attf-class="dropdown-item js_change_lang #{active_lang == lg and 'active'}" t-att-data-url_code="lg[1]">
+            <span t-if="not no_text" t-esc="lg[2].split('/').pop()"/>
+          </a>
+        </t>
+      </div>
+    </div>
+  </template>
+
+  <template id="aaoi_language_selector_add_flag" inherit_id="aaoi_website.aaoi_language_selector">
+    <xpath expr="//button[contains(@t-attf-class, 'dropdown-toggle')]/span" position="before">
+      <t t-if="flags" t-call="website.lang_flag">
+        <t t-set="flag_image_src" t-value="active_lang[4]"/>
+      </t>
+    </xpath>
+    <xpath expr="//*[contains(@t-attf-class, 'js_change_lang')]/span" position="before">
+      <t t-if="flags" t-call="website.lang_flag">
+        <t t-set="flag_image_src" t-value="lg[4]"/>
+      </t>
+    </xpath>
+  </template>
+
+  <template id="add_footer" name="add footer" inherit_id="website.snippet_options">
+    <xpath expr="//div[@data-selector='#wrapwrap > footer']//we-select" position="inside">
+      <we-button title="AAOI Footer"
+                 data-customize-website-views="aaoi_website.template_footer_aaoi"
+                 data-customize-website-variable="'aaoi_footer_var'"
+                 data-img="/website/static/src/img/snippets_options/footer_template_links.svg"/>
+    </xpath>
+  </template>
+
+  <template id="add_header" name="add header" inherit_id="website.snippet_options">
+    <xpath expr="//div[@data-selector='#wrapwrap > header']//we-select" position="inside">
+      <we-button title="AAOI Header"
+                 data-name="aaoi_header_opt"
+                 data-customize-website-views="aaoi_website.template_header_aaoi"
+                 data-customize-website-variable="'aaoi_header_var'"
+                 data-img="/website/static/src/img/snippets_options/footer_template_links.svg"/>
+    </xpath>
+  </template>
+</odoo>

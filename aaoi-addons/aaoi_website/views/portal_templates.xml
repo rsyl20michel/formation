@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="portal_training_menu" name="Portal layout : training menu entries"
+            inherit_id="portal.portal_breadcrumbs" priority="20">
+    <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+      <li t-if="page_name == 'training' or event"
+          t-attf-class="breadcrumb-item #{'active ' if not training else ''}">
+        <a t-if="event" t-attf-href="/training?{{ keep_query() }}">
+          Trainings
+        </a>
+        <t t-else="">
+          Trainings
+        </t>
+      </li>
+      <li t-if="page_name == 'planning'"
+          t-attf-class="breadcrumb-item #{'active ' if not planning else ''}">
+        <a t-if="planning" t-attf-href="/planning?{{ keep_query() }}">
+          Schedules
+        </a>
+        <t t-else="">
+          Schedules
+        </t>
+      </li>
+      <li t-if="page_name == 'aboutus'" class="breadcrumb-item">
+        About AAOI
+      </li>
+      <li t-if="page_name in ['customized_training', 'cgu', 'contact', 'legal_notice']" class="breadcrumb-item">
+        <t t-esc="name"/>
+      </li>
+      <li t-if="event"
+          t-attf-class="breadcrumb-item #{'active ' if not event else ''}">
+        <t t-foreach="event.tag_ids.filtered(lambda tag: tag.category_id.is_published)" t-as="tag">
+          <a t-if="event"
+             t-attf-href="/training?tags=#{tag.ids}">
+            <t t-esc="tag.name"/>
+          </a>
+          <t t-else="">
+            <t t-esc="tag.name"/>
+          </t>
+        </t>
+      </li>
+      <li t-if="event"
+          t-attf-class="breadcrumb-item #{'active ' if not event else ''}">
+        <t t-esc="event.name"/>
+      </li>
+    </xpath>
+  </template>
+
+  <template id="aaoi_portal_searchbar" name="Portal Search Bar">
+    <div class="form-inline col-12 mb-4 aaoi-sort-container">
+      <!--  Collapsable content  -->
+      <div t-if="quantities_per_page" class="form-inline col-md-3 col-sm-6 col-6">
+        <label for="portal_searchbar_ppg" class="sort-label">
+        <span class="small mr-1 navbar-text">Show:</span>
+        <div class="btn-group">
+          <button id="portal_searchbar_ppg" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">
+            <t t-esc="ppg"/>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="portal_searchbar_sortby">
+            <t t-foreach="quantities_per_page" t-as="option">
+              <a t-att-href="request.httprequest.path + '?' + keep_query('*', ppg=option.name)"
+                 t-attf-class="dropdown-item#{ppg == option.name and ' active' or ''}">
+                <span t-esc="option.name"/>
+              </a>
+            </t>
+          </div>
+        </div>
+      </label>
+      </div>
+      <div t-if="searchbar_sortings" class="form-inline col-md-3 col-sm-6 col-6">
+        <label for="portal_searchbar_sortby" class="sort-label">
+        <span class="small mr-1 navbar-text">Sort By:</span>
+        <div class="btn-group">
+          <button id="portal_searchbar_sortby" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">
+            <t t-esc="searchbar_sortings[sortby].get('label', 'Newest')"/>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="portal_searchbar_sortby">
+            <t t-foreach="searchbar_sortings" t-as="option">
+              <a t-att-href="request.httprequest.path + '?' + keep_query('*', sortby=option)"
+                 t-attf-class="dropdown-item#{sortby == option and ' active' or ''}">
+                <span t-esc="searchbar_sortings[option].get('label')"/>
+              </a>
+            </t>
+          </div>
+        </div>
+        </label>
+      </div>
+    </div>
+  </template>
+
+</odoo>

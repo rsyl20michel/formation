@@ -1,0 +1,363 @@
+.aaoi_banner_training {
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.aaoi_customized_training_title
+{
+  @include text-40-700;
+  color: #fff;
+}
+
+.aaoi_customized_training_text
+{
+  @include  text-16-300;
+  color: #fff;
+}
+
+.aaoi_list_training_content_img {
+  /* This timing applies on the way OUT */
+  transition-timing-function: ease-in;
+
+  /* Quick on the way out */
+  transition: 0.5s;
+  position: relative;
+  //transform: translate(0, 0); training list does need hover effect so I remove it
+}
+
+.aaoi_list_training_img {
+  width: 100%;
+  display: inline-block;
+  height: 215px;
+  object-fit: cover;
+}
+
+.aaoi_list_training_date_text {
+  position: absolute;
+  top: 0;
+  line-height: 25px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 15px;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  @include text-32-700;
+  color: #fff;
+  background: url("../img/Polygon_list_training.png") center center no-repeat transparent;
+
+  span {
+    @include text-16-700;
+    color: #fff;
+  }
+}
+
+.aaoi_list_training_about {
+  padding: 24px;
+  background-color: #FBF8FC;
+  //transform: translate(0, 0); training list does need hover effect so I remove it
+  /* This timing applies on the way OUT */
+  transition-timing-function: ease-in;
+
+  /* Quick on the way out */
+  transition: 0.5s;
+}
+
+.aaoi_list_training_content {
+  border-radius: 8px;
+  overflow: hidden;
+  //margin-bottom: 30px;
+  //max-height: 430px; training list does need hover effect so I remove it
+  height: 100%; //if back to hover effect delete it
+  background-color: #FBF8FC; //if back to hover effect delete it
+}
+
+.aaoi_list_training_about_text {
+  @include text-14-300;
+  margin-bottom: 0;
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+
+  span {
+    @include text-14-700;
+    color: $aaoi-color-primary;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.aaoi_list_training_price {
+  @include text-16-700;
+  color: #fff;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  margin-top: 27px;
+  margin-bottom: 50px;
+}
+
+.aaoi_list_training_link {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aaoi_btn_another_other.list_training {
+  margin-right: 15px;
+  padding: 10px 15px;
+}
+
+.aaoi_btn_other.list_training {
+  color: $aaoi-color-primary !important;
+  padding: 10px 15px;
+}
+
+/* training list does need hover effect so I remove it
+.aaoi_list_training_content {
+  !* This timing applies on the way OUT *!
+  transition-timing-function: ease-in;
+
+  !* Quick on the way out *!
+  transition: 0.5s;
+
+  &:hover {
+    .aaoi_list_training_content_img {
+      !* This timing applies on the way OUT *!
+      transition-timing-function: ease-in;
+
+      !* Quick on the way out *!
+      transition: 0.5s;
+      transform: translate(0, -216px);
+    }
+
+    .aaoi_list_training_about {
+      height: 430px;
+      transform: translate(0, -215px);
+      background: linear-gradient(0deg, rgba(169, 110, 178, 0.96), rgba(169, 110, 178, 0.96));
+      !* This timing applies on the way OUT *!
+      transition-timing-function: ease-in;
+
+      !* Quick on the way out *!
+      transition: 0.5s;
+
+      * {
+        color: #fff;
+      }
+    }
+
+    .aaoi_list_training_date_show_hover {
+      display: inline-block;
+    }
+  }
+}*/
+
+.trainings_title {
+  @include text-24-700;
+  @include aaoi-secondary-text-gradient;
+}
+
+//this is categorie checkbox code
+/* The trainings_radio_container */
+.trainings_radio_container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1;
+  @include text-14-300;
+  color: #281E29;
+  min-height: 16px;
+}
+
+/* Hide the browser's default checkbox */
+.trainings_radio_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #fff;
+  border: 1px solid #4F5E66;
+  border-radius: 2px;
+}
+
+/* On mouse-over, add a grey background color */
+.trainings_radio_container:hover input ~ .checkmark {
+  background-color: $aaoi-color-primary;
+}
+
+/* When the checkbox is checked, add a blue background */
+.trainings_radio_container input:checked ~ .text {
+  color: $aaoi-color-primary;
+  font-weight: 700;
+}
+
+.trainings_radio_container input:checked ~ .checkmark {
+  background-color: $aaoi-color-primary;
+  border: 1px solid $aaoi-color-primary;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.trainings_radio_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.trainings_radio_container .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+//end this is categorie checkbox code
+.trainings_filter {
+  padding: 24px;
+  //box-shadow: 0px 0rem 0.25rem rgba(0,0,0,.08); iraisana
+  //box-shadow: 0px -1rem 1rem rgba(179, 117, 189,.08), 0px 1rem 1rem rgba(179, 117, 189,.08);
+  box-shadow: 0px -1rem 1rem rgba(179, 117, 189, .08), 0px 1rem 1rem rgba(179, 117, 189, .00);
+  border-bottom: 1px solid #F6F7F7;
+}
+
+.aaoi_btn_bordered.trainings {
+  padding: 16px 24px;
+}
+
+.trainings_planning {
+  padding: 24px;
+}
+
+.trainings_planning_text {
+  @include text-14-700;
+  color: #281E29;
+}
+
+.trainings_moreinfo {
+  padding: 24px;
+  background: #FBF8FC;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.trainings_moreinfo_text {
+  @include text-14-700;
+  @include aaoi-secondary-text-gradient;
+}
+
+.aaoi_btn_fulled.trainings {
+  padding: 16px;
+  font-size: 12px;
+}
+
+.aaoi_list_training_noChoice {
+  background-color: #000;
+  padding: 40px 25px;
+  box-shadow: 0px 0px 48px rgba(79, 94, 102, 0.04);
+  border-radius: 8px;
+}
+
+.aaoi_list_training_noChoice_text {
+  @include text-16-700;
+  color: #fff;
+}
+
+.trainings_flex {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aaoi_btn_fulled.trainings_collapse {
+  display: none;
+  padding: 10px;
+}
+
+button[disabled] {
+  cursor: not-allowed !important;
+}
+
+@media screen and (min-width: 769px) {
+  #collapseTrainingList.collapse:not(.show) {
+    display: block;
+  }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .aaoi_btn_fulled.trainings {
+    padding: 15px 10px;
+  }
+
+  .aaoi_btn_bordered.trainings {
+    padding: 15px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .trainings_planning {
+    padding: 24px;
+  }
+
+  .trainings_moreinfo {
+    margin-bottom: 25px;
+  }
+
+  .trainings_title.mb-4 {
+    margin-bottom: 0 !important;
+  }
+
+  #collapseTrainingList {
+    margin-top: 25px;
+  }
+
+  .aaoi_btn_fulled.trainings_collapse {
+    display: block;
+  }
+
+  .aaoi_btn_fulled.trainings {
+    font-size: 16px;
+  }
+
+  .aaoi_customized_training_title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aaoi_btn_fulled.trainings_collapse {
+    width: 150px;
+  }
+}
+

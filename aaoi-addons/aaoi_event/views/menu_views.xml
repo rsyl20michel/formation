@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<odoo>
+  <data>
+
+    <menuitem name="Event Modality"
+              id="menu_event_modality"
+              sequence="4"
+              parent="event.menu_event_configuration"/>
+    <menuitem name="Event Target"
+              id="menu_event_target"
+              sequence="5"
+              parent="event.menu_event_configuration"/>
+    <menuitem name="Provided Type"
+              id="menu_event_provided_type"
+              sequence="6"
+              parent="event.menu_event_configuration"/>
+    <menuitem name="Certificate Type"
+              id="menu_event_certificate_type"
+              sequence="7"
+              parent="event.menu_event_configuration"/>+
+    <menuitem name="Records per Page"
+              id="menu_records_per_page"
+              sequence="8"
+              parent="event.menu_event_configuration"/>
+
+    <menuitem name="Certificates"
+              id="menu_event_certificates"
+              sequence="3"
+              parent="event.event_main_menu"/>
+    <menuitem name="Testimonials"
+              id="menu_event_testimonial"
+              sequence="4"
+              parent="event.event_main_menu"/>
+
+  </data>
+</odoo>
